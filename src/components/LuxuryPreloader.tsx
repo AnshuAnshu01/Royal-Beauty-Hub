@@ -6,13 +6,14 @@ export const LuxuryPreloader: React.FC = () => {
   const [fadeExit, setFadeExit] = useState(false);
 
   useEffect(() => {
-    // Smooth reveal timer
+    // Snappy luxury reveal
     const timer = setTimeout(() => {
       setFadeExit(true);
-      setTimeout(() => {
+      const closeTimer = setTimeout(() => {
         setLoading(false);
-      }, 500); // Wait for fade-out transition
-    }, 1100);
+      }, 400);
+      return () => clearTimeout(closeTimer);
+    }, 700);
 
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +22,7 @@ export const LuxuryPreloader: React.FC = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-gradient-to-b from-[#FAF7FC] via-[#F4EBFB] to-[#FAF7FC] flex flex-col items-center justify-center p-6 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] bg-gradient-to-b from-[#FAF7FC] via-[#F3E7FB] to-[#FAF7FC] flex flex-col items-center justify-center p-6 transition-opacity duration-400 ${
         fadeExit ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
       aria-label="Loading Royal Beauty Hub"

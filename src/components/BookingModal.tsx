@@ -157,7 +157,7 @@ Notes: ${formData.message || 'None'}`;
                   onClick={handleWhatsAppDirect}
                   className="flex-1 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.18em] font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#FF6082]/25"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white stroke-white" />
+                  <WhatsAppIcon className="w-4 h-4 fill-white text-white" />
                   Chat Directly on WhatsApp
                 </button>
                 <button

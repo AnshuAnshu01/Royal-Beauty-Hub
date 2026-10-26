@@ -99,7 +99,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               {/* Right Column: Narrative & Detailed Highlights */}
               <div className="lg:col-span-6 space-y-5 text-left">
                 <div className="inline-flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#FF6082]" />
+                  <Crown className="w-4 h-4 text-[#FF6082]" />
                   <span className="text-xs uppercase tracking-[0.25em] text-[#FF6082] font-semibold">
                     ARTISTRY IN EVERY DETAIL
                   </span>
@@ -137,7 +137,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                   <div className="flex items-start gap-3 p-3 bg-white/75 border border-[#705EFF]/15 rounded-sm">
                     <div className="w-8 h-8 rounded-full bg-[#B26CFF]/10 border border-[#B26CFF]/30 flex items-center justify-center text-[#B26CFF] shrink-0 mt-0.5">
-                      <Sparkles className="w-4 h-4" />
+                      <Check className="w-4 h-4" />
                     </div>
                     <div>
                       <h4 className="text-xs font-semibold text-[#1A0B26] uppercase tracking-wider">Bespoke Dupatta & Nath Placement</h4>
@@ -406,7 +406,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             Let's Make You Look Stunning
           </span>
           <div className="inline-flex items-center gap-2 mb-3">
-            <Sparkles className="w-4 h-4 text-[#FF6082]" />
+            <Crown className="w-4 h-4 text-[#FF6082]" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#B26CFF] font-semibold">
               Only One Bride Per Day
             </span>
