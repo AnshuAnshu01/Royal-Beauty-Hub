@@ -1,127 +1,98 @@
 import React from 'react';
-import { Star, Quote, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { TESTIMONIALS, ARTIST_DATA } from '../data/makeupData';
+import { Star, Quote, ArrowRight } from 'lucide-react';
+import { TESTIMONIALS } from '../data/makeupData';
 
 interface ReviewsPageProps {
   onBookClick: () => void;
-  currentLang: 'EN' | 'HI';
 }
 
-export const ReviewsPage: React.FC<ReviewsPageProps> = ({ onBookClick, currentLang }) => {
-  const stats = [
-    { number: "500+", label: "Brides Adorned", subtitle: "Across 15+ Indian cities" },
-    { number: "6+", label: "Years Experience", subtitle: "Bridal & celebrity artistry" },
-    { number: "1,200+", label: "Transformations", subtitle: "Traditional, HD & Airbrush" },
-    { number: "100%", label: "Personalized Looks", subtitle: "Zero generic cookie-cutter styles" },
-  ];
-
+export const ReviewsPage: React.FC<ReviewsPageProps> = ({ onBookClick }) => {
   return (
-    <div className="pt-24 pb-28 bg-[#0D0714] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto pt-8 pb-14 border-b border-[#705EFF]/25">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#FF6082]" />
-            <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
-              KIND WORDS FROM OUR BRIDES
-            </span>
-            <span className="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#FF6082]" />
+    <div className="bg-[#FAF7FC] min-h-screen text-[#1A0B26]">
+      {/* 1. Proper Landscape AI-Generated Hero Section */}
+      <div className="relative w-full h-[52vh] min-h-[380px] max-h-[580px] overflow-hidden bg-[#0D0714]">
+        <img
+          src="/assets/heroes/reviews_hero.jpg"
+          alt="Royal Wedding Reception Celebration"
+          className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.05]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0714] via-[#0D0714]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0714]/85 via-transparent to-[#0D0714]/70" />
+
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 sm:pb-14">
+            <div className="inline-flex items-center gap-2 mb-2 sm:mb-3">
+              <span className="w-6 h-[2px] bg-[#FF6082]" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
+                VERIFIED BRIDAL WORDS
+              </span>
+              <span className="w-6 h-[2px] bg-[#705EFF]" />
+            </div>
+
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight">
+              Cherished Memories & <br />
+              <span className="text-blue-reveal italic font-light">
+                Royal Testimonials
+              </span>
+            </h1>
           </div>
-
-          <h1 className="font-serif text-4xl sm:text-6xl text-[#FFE4F6] font-normal tracking-tight mb-4">
-            Love Letters & Reviews
-          </h1>
-
-          <p className="text-sm sm:text-base text-[#D8CEE8] font-light leading-relaxed max-w-2xl mx-auto">
-            Honored impressions from genuine brides who chose Gautam Aadi for their wedding vows, sangeet galas, and grand reception ceremonies.
-          </p>
         </div>
+      </div>
 
-        {/* Numbers & Trust Counter */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 my-16 pb-16 border-b border-[#705EFF]/25">
-          {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="p-6 bg-[#160F24] border border-[#705EFF]/30 text-center flex flex-col justify-center items-center hover:border-[#FF6082] transition-colors shadow-lg"
-            >
-              <span className="font-serif text-3xl sm:text-5xl text-[#FF6082] font-light mb-1">
-                {stat.number}
-              </span>
-              <span className="text-xs uppercase tracking-[0.2em] text-[#FFE4F6] font-medium mb-1">
-                {stat.label}
-              </span>
-              <span className="text-[11px] text-[#9E8EB0]">
-                {stat.subtitle}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {TESTIMONIALS.map((t) => (
-            <div
-              key={t.id}
-              className="bg-[#160F24] border border-[#705EFF]/30 p-8 sm:p-10 flex flex-col justify-between relative shadow-xl hover:border-[#FF6082] transition-all duration-300"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-1 text-[#FF6082]">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#FF6082]" />
-                  ))}
-                </div>
-                <Quote className="w-8 h-8 text-[#B26CFF]/25" />
-              </div>
-
-              <blockquote className="font-serif text-base sm:text-lg text-[#FFE4F6] leading-relaxed mb-8 font-light italic">
-                “{t.review}”
-              </blockquote>
-
-              <div className="pt-6 border-t border-[#705EFF]/20 flex items-center gap-4">
-                <div className="relative p-1 bg-[#0D0714] border border-[#705EFF]/40 shrink-0">
-                  <div className="absolute top-0.5 left-0.5 w-1.5 h-1.5 border-t border-l border-[#FF6082]" />
-                  <div className="absolute top-0.5 right-0.5 w-1.5 h-1.5 border-t border-r border-[#FF6082]" />
-                  <div className="w-13 h-16 overflow-hidden border border-[#705EFF]/30 bg-[#09040F] flex items-center justify-center">
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-serif text-base text-[#FFE4F6] font-medium">
-                    {t.name}
-                  </span>
-                  <span className="text-[11px] uppercase tracking-wider text-[#FF6082]">
-                    {t.lookTitle}
-                  </span>
-                  <span className="text-[10px] text-[#9E8EB0]">
-                    {t.location} • {t.eventDate}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Book Callout */}
-        <div className="text-center bg-[#160F24] border border-[#705EFF]/35 p-10 max-w-3xl mx-auto shadow-2xl">
-          <h2 className="font-serif text-2xl sm:text-3xl text-[#FFE4F6] mb-3">
-            Ready to Create Your Own Unforgettable Bridal Memory?
+      {/* Main Reviews Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold block mb-2">
+            500+ BRIDES CELEBRATED
+          </span>
+          <h2 className="font-serif text-2xl sm:text-4xl text-[#1A0B26]">
+            In Their Own Words
           </h2>
-          <p className="text-xs sm:text-sm text-[#D8CEE8] max-w-lg mx-auto mb-6 font-light">
-            Slots for the 2025–2026 wedding calendar are filling quickly. Contact our concierge to reserve your auspicious date.
-          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          {TESTIMONIALS.map((review) => (
+            <div key={review.id} className="glass-card p-6 sm:p-7 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-1 text-[#FF6082]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#705EFF] font-semibold bg-[#705EFF]/10 px-2 py-0.5">
+                    Verified Bride
+                  </span>
+                </div>
+
+                <Quote className="w-6 h-6 text-[#705EFF]/30 mb-2" />
+                <p className="text-xs sm:text-sm text-[#4A3A5E] font-light leading-relaxed italic mb-6">
+                  "{review.review}"
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#705EFF]/15">
+                <h4 className="font-serif text-base sm:text-lg font-semibold text-[#1A0B26]">
+                  {review.name}
+                </h4>
+                <p className="text-xs text-[#7A698F]">
+                  {review.role} • {review.location}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Banner */}
+        <div className="text-center">
           <button
             onClick={onBookClick}
-            className="px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.2em] font-bold transition-opacity shadow-xl shadow-[#705EFF]/25 cursor-pointer"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-[0.2em] font-bold shadow-lg shadow-[#FF6082]/25 cursor-pointer"
           >
-            RESERVE YOUR DATE NOW →
+            <span>Reserve Your Date With Gautam</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
           </button>
         </div>
-
       </div>
     </div>
   );

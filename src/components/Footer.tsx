@@ -1,6 +1,6 @@
 import React from 'react';
-import { Instagram, MessageCircle, Phone, Mail, MapPin, Clock } from 'lucide-react';
-import { ARTIST_DATA, SERVICES } from '../data/makeupData';
+import { Instagram, MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
+import { ARTIST_DATA } from '../data/makeupData';
 import { PageRoute } from './Navbar';
 
 interface FooterProps {
@@ -19,18 +19,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-[#705EFF]/20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-[#705EFF]/20">
           
-          {/* Column 1: Brand & Atelier Narrative (4 cols) */}
-          <div className="lg:col-span-4">
+          {/* Column 1: Big Logo & Atelier Narrative (5 cols) */}
+          <div className="lg:col-span-5">
             <button
               onClick={() => handleNav('home')}
-              className="mb-4 text-left cursor-pointer"
+              className="mb-5 text-left cursor-pointer group focus:outline-none"
             >
+              {/* Big Luxury Logo */}
               <img
                 src={ARTIST_DATA.logoUrl}
                 alt="Royal Beauty Hub Luxury Makeup Studio & Academy"
-                className="h-16 sm:h-20 w-auto object-contain filter drop-shadow-[0_2px_15px_rgba(178,108,255,0.4)] -ml-1"
+                className="h-24 sm:h-28 md:h-32 w-auto object-contain filter drop-shadow-[0_4px_25px_rgba(178,108,255,0.45)] -ml-2 transition-transform duration-300 group-hover:scale-105"
               />
             </button>
 
@@ -38,22 +39,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
               Luxury bridal atelier dedicated to immortalizing timeless Indian grace, couture eye artistry, and radiant glass skin for royal weddings and celebrations worldwide.
             </p>
 
+            {/* Redesigned Minimal Social & WhatsApp Icons */}
             <div className="flex items-center gap-3">
               <a
                 href={ARTIST_DATA.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-[#705EFF]/30 hover:border-[#B26CFF] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-colors"
+                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#FF6082] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
 
+              {/* Minimal Redesigned WhatsApp Icon */}
               <a
                 href={`https://wa.me/${ARTIST_DATA.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-[#705EFF]/30 hover:border-[#B26CFF] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-colors"
+                className="w-10 h-10 border border-[#25D366]/40 hover:border-[#25D366] bg-[#160F24] text-[#25D366] hover:bg-[#25D366] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -61,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
 
               <a
                 href={`tel:${ARTIST_DATA.phone.replace(/\s+/g, '')}`}
-                className="w-9 h-9 border border-[#705EFF]/30 hover:border-[#B26CFF] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-colors"
+                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#B26CFF] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
                 aria-label="Call"
               >
                 <Phone className="w-4 h-4" />
@@ -69,8 +72,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
             </div>
           </div>
 
-          {/* Column 2: Navigation Links (2 cols) */}
-          <div className="lg:col-span-2">
+          {/* Column 2: Explore Pages (3 cols) */}
+          <div className="lg:col-span-3">
             <h4 className="text-[11px] uppercase tracking-[0.25em] text-[#FF6082] font-semibold mb-4">
               Explore Pages
             </h4>
@@ -82,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
               </li>
               <li>
                 <button onClick={() => handleNav('services')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
-                  Services
+                  Services & Packages
                 </button>
               </li>
               <li>
@@ -101,111 +104,55 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('about')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
-                  About Gautam
+                <button onClick={() => handleNav('founder')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
+                  Founder & Artist
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('reviews')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
-                  Bride Reviews
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('contact')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
-                  Contact & Studio
+                <button onClick={() => handleNav('locations')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
+                  Locations & Travel
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Signature Services (3 cols) */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[11px] uppercase tracking-[0.25em] text-[#FF6082] font-semibold mb-4">
-              Signature Services
+          {/* Column 3: Studio & VIP Inquiries (4 cols) */}
+          <div className="lg:col-span-4">
+            <h4 className="text-[11px] uppercase tracking-[0.25em] text-[#B26CFF] font-semibold mb-4">
+              Atelier & Destination Travel
             </h4>
-            <ul className="space-y-2.5 text-xs">
-              {SERVICES.slice(0, 6).map((service) => (
-                <li key={service.id}>
-                  <button
-                    onClick={() => onBookClick(service.id)}
-                    className="hover:text-[#B26CFF] transition-colors text-left cursor-pointer"
-                  >
-                    {service.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Studio & Policies (3 cols) */}
-          <div className="lg:col-span-3">
-            <h4 className="text-[11px] uppercase tracking-[0.25em] text-[#FF6082] font-semibold mb-4">
-              Studio & Atelier
-            </h4>
-            
-            <div className="space-y-3 text-xs text-[#9E8EB0]">
-              <div className="flex items-start gap-2.5">
+            <ul className="space-y-3 text-xs text-[#9E8EB0] mb-6">
+              <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#FF6082] shrink-0 mt-0.5" />
-                <span>Aurangabad, Bihar, India (Pan-India Travel for Destination Weddings)</span>
-              </div>
-
-              <div className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#B26CFF] shrink-0 mt-0.5" />
-                <span>Mon – Sun: 09:00 AM – 08:00 PM (By Appointment Only)</span>
-              </div>
-
-              <div className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-[#FF6082] shrink-0 mt-0.5" />
-                <a href="tel:9931689790" className="hover:text-[#FFE4F6] transition-colors font-medium text-[#FFE4F6]/90">
-                  Contact: 9931689790
+                <span>{ARTIST_DATA.location}</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-[#B26CFF] shrink-0" />
+                <a href={`tel:${ARTIST_DATA.phone.replace(/\s+/g, '')}`} className="hover:text-[#FFE4F6] transition-colors">
+                  {ARTIST_DATA.phone}
                 </a>
-              </div>
-            </div>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-[#705EFF] shrink-0" />
+                <a href={`mailto:${ARTIST_DATA.email}`} className="hover:text-[#FFE4F6] transition-colors">
+                  {ARTIST_DATA.email}
+                </a>
+              </li>
+            </ul>
 
-            {/* Legal Links */}
-            <div className="mt-5 pt-4 border-t border-[#705EFF]/20 flex items-center gap-4 text-xs">
-              <button
-                onClick={() => handleNav('cookie-policy')}
-                className="text-[#B26CFF] hover:text-[#FF6082] hover:underline cursor-pointer"
-              >
-                Cookie Policy
-              </button>
-              <span className="text-[#9E8EB0]">/</span>
-              <button
-                onClick={() => handleNav('terms')}
-                className="text-[#B26CFF] hover:text-[#FF6082] hover:underline cursor-pointer"
-              >
-                Terms & Conditions
-              </button>
+            <div className="p-3 bg-[#160F24] border border-[#705EFF]/30 text-[11px] text-[#D8CEE8]">
+              <span className="text-[#FF6082] font-semibold block mb-1">Pan-India & Global Bookings:</span>
+              <span>Available for destination bridal weddings across Jaipur, Udaipur, Goa, Delhi NCR, Mumbai, and worldwide.</span>
             </div>
-
-            <button
-              onClick={() => onBookClick()}
-              className="mt-5 w-full py-2.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.2em] font-bold transition-opacity cursor-pointer shadow-md shadow-[#FF6082]/25"
-            >
-              OPEN FLOATING BOOKING FORM
-            </button>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright on Left, ACCustomLabs in Center, Policies on Right */}
+        {/* Bottom Bar: All rights reserved followed by designed and developed sentence in center */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#9E8EB0] gap-4">
           
-          {/* Left: Copyright */}
-          <div className="text-center md:text-left">
-            <p>© {new Date().getFullYear()} Makeup by Gautam Aadi. All rights reserved.</p>
-          </div>
-
-          {/* Centre: Designed and Developed by ACCustomLabs */}
-          <div className="text-center">
-            <span className="inline-block text-[#FF6082] font-medium tracking-[0.08em] hover:text-[#FFE4F6] transition-colors py-0.5 border-b border-[#FF6082]/40">
-              Designed and Developed by ACCustomLabs
-            </span>
-          </div>
-
-          {/* Right: Quick Links */}
-          <div className="flex items-center gap-4 text-center md:text-right">
+          {/* Quick Legal links on the left */}
+          <div className="flex items-center gap-4 text-center md:text-left order-2 md:order-1">
             <button
               onClick={() => handleNav('cookie-policy')}
               className="hover:text-[#FFE4F6] transition-colors cursor-pointer"
@@ -219,12 +166,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
             >
               Terms & Conditions
             </button>
-            <span>•</span>
+          </div>
+
+          {/* CENTRE OF FOOTER: All rights reserved followed by designed and developed sentence */}
+          <div className="text-center order-1 md:order-2 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+            <span>© {new Date().getFullYear()} Royal Beauty Hub. All rights reserved.</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="text-[#FF6082] font-medium tracking-[0.05em] py-0.5 border-b border-[#FF6082]/40 hover:text-[#FFE4F6] transition-colors">
+              Designed and Developed by ACCustomLabs
+            </span>
+          </div>
+
+          {/* Social Handle on the right */}
+          <div className="order-3 text-center md:text-right">
             <a
               href={ARTIST_DATA.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#B26CFF] hover:text-[#FF6082] hover:underline"
+              className="text-[#B26CFF] hover:text-[#FF6082] transition-colors"
             >
               {ARTIST_DATA.handle}
             </a>

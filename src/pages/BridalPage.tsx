@@ -1,88 +1,105 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Gem, Heart, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Gem, Heart, CheckCircle2, Sparkles } from 'lucide-react';
 import { BRIDAL_ATELIER_STEPS, ARTIST_DATA, FAQ_ITEMS } from '../data/makeupData';
 
 interface BridalPageProps {
   onBookBridal: () => void;
-  currentLang: 'EN' | 'HI';
 }
 
-export const BridalPage: React.FC<BridalPageProps> = ({ onBookBridal, currentLang }) => {
+export const BridalPage: React.FC<BridalPageProps> = ({ onBookBridal }) => {
   return (
-    <div className="pt-24 pb-28 bg-[#0D0714] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#FAF7FC] min-h-screen text-[#1A0B26]">
+      {/* 1. Proper Landscape AI-Generated Hero Section */}
+      <div className="relative w-full h-[54vh] min-h-[400px] max-h-[600px] overflow-hidden bg-[#0D0714]">
+        <img
+          src="/assets/heroes/bridal_hero.jpg"
+          alt="Regal Indian Royal Bride"
+          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0714] via-[#0D0714]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0714]/85 via-transparent to-[#0D0714]/70" />
+
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 sm:pb-14">
+            <div className="inline-flex items-center gap-2 mb-2 sm:mb-3">
+              <span className="w-6 h-[2px] bg-[#FF6082]" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
+                THE BRIDAL ATELIER
+              </span>
+              <span className="w-6 h-[2px] bg-[#705EFF]" />
+            </div>
+
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight">
+              Your Bespoke <br />
+              <span className="text-blue-reveal italic font-light">
+                Bridal Journey
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         
-        {/* Page Hero Header */}
-        <div className="text-center max-w-3xl mx-auto pt-8 pb-14 border-b border-[#705EFF]/25">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#FF6082]" />
-            <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
-              THE BRIDAL ATELIER
-            </span>
-            <span className="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#FF6082]" />
-          </div>
-
-          <h1 className="font-serif text-4xl sm:text-6xl text-[#FFE4F6] font-normal tracking-tight mb-4">
-            Your Bespoke Bridal Journey
-          </h1>
-
-          <p className="text-sm sm:text-base text-[#D8CEE8] font-light leading-relaxed max-w-2xl mx-auto">
-            A sacred rite of passage designed with couture rigor. Every brush stroke harmonizes with your facial bone architecture, bridal jewelry weight, veil draping, and sacred rituals.
+        {/* Intro Manifesto */}
+        <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+          <h2 className="font-serif text-2xl sm:text-4xl text-[#1A0B26] font-normal mb-4">
+            A Sacred Rite of Passage Crafted with Couture Rigor
+          </h2>
+          <p className="text-sm sm:text-base text-[#4A3A5E] font-light leading-relaxed mb-6">
+            Every brush stroke harmonizes with your facial bone architecture, bridal jewelry weight, veil draping, and sacred rituals. Designed to look breathtaking under intimate wedding candlelight and immaculate in 4K cinematography.
           </p>
-
-          <div className="mt-8">
-            <button
-              onClick={onBookBridal}
-              className="px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.2em] font-bold transition-opacity shadow-xl shadow-[#705EFF]/25 cursor-pointer"
-            >
-              RESERVE YOUR BRIDAL DATES →
-            </button>
-          </div>
+          <button
+            onClick={onBookBridal}
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-[0.2em] font-bold shadow-lg shadow-[#FF6082]/25 hover:opacity-95 transition-all cursor-pointer"
+          >
+            <span>Reserve Your Bridal Dates</span>
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </button>
         </div>
 
         {/* 4-Step Process Grid */}
-        <div className="mt-16 mb-24">
-          <div className="text-center mb-12">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#FF6082] font-medium">
-              The 4-Step Method
+        <div className="mb-16 sm:mb-24">
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold block mb-2">
+              THE 4-STEP ATELIER METHOD
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#FFE4F6] mt-1 font-normal">
+            <h3 className="font-serif text-2xl sm:text-4xl text-[#1A0B26]">
               From Consultation to Sacred Vows
-            </h2>
+            </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {BRIDAL_ATELIER_STEPS.map((item) => (
               <div
                 key={item.step}
-                className="bg-[#160F24] border border-[#705EFF]/30 p-7 flex flex-col justify-between relative group hover:border-[#FF6082] transition-all duration-300 shadow-xl"
+                className="glass-card p-6 sm:p-7 flex flex-col justify-between relative group hover:border-[#705EFF]"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-serif text-3xl sm:text-4xl text-[#FF6082] font-light tracking-widest">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-serif text-2xl text-[#705EFF] font-bold">
                       {item.step}
                     </span>
-                    <span className="w-3 h-[1px] bg-[#B26CFF]/40" />
+                    <Sparkles className="w-4 h-4 text-[#FF6082]" />
                   </div>
 
-                  <h3 className="font-serif text-xl text-[#FFE4F6] mb-1 font-normal group-hover:text-[#FF6082] transition-colors">
+                  <h4 className="font-serif text-lg sm:text-xl text-[#1A0B26] font-semibold mb-1">
                     {item.title}
-                  </h3>
-                  
-                  <p className="text-[11px] uppercase tracking-wider text-[#B26CFF] mb-4">
+                  </h4>
+                  <p className="text-[11px] uppercase tracking-wider text-[#705EFF] mb-3 font-medium">
                     {item.subtitle}
                   </p>
-
-                  <p className="text-xs text-[#D8CEE8] leading-relaxed mb-6 font-light">
+                  <p className="text-xs text-[#4A3A5E] font-light leading-relaxed mb-4">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-4 border-t border-[#705EFF]/20">
-                  {item.features.map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2 text-[11px] text-[#9E8EB0]">
-                      <span className="w-1.5 h-1.5 bg-[#FF6082]/80 rounded-none shrink-0" />
-                      <span>{feat}</span>
+                <div className="pt-3 border-t border-[#705EFF]/15 space-y-1.5">
+                  {item.features.map((f, i) => (
+                    <div key={i} className="flex items-center gap-2 text-[11px] text-[#2D183E]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#705EFF]" />
+                      <span>{f}</span>
                     </div>
                   ))}
                 </div>
@@ -91,158 +108,65 @@ export const BridalPage: React.FC<BridalPageProps> = ({ onBookBridal, currentLan
           </div>
         </div>
 
-        {/* Signature Bridal Atelier Masterpieces Showcase */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#FF6082] font-medium">
-              SIGNATURE ATELIER PORTFOLIO
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#FFE4F6] mt-1 font-normal">
-              Sacred Regality Captured in Real Light
-            </h2>
-            <p className="text-xs sm:text-sm text-[#D8CEE8] mt-2 max-w-xl mx-auto font-light">
-              Authentic brides adorned by Gautam Aadi. Every portrait reflects bespoke jewellery placement, couture draping, and radiant 24-hour longevity.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Maharani Dupatta Vows",
-                event: "Royal Traditional Phera",
-                image: "/assets/aistudio/Screenshot_2026-10-25_223840_9e31f0f8.png",
-                aspect: "aspect-[3/4]"
-              },
-              {
-                title: "Polki Crimson Grace",
-                event: "Sacred Wedding Vows",
-                image: "/assets/aistudio/Screenshot_2026-10-25_223956_93f9be68.png",
-                aspect: "aspect-[3/4]"
-              },
-              {
-                title: "White Rose Contemporary",
-                event: "Daytime Royal Wedding",
-                image: "/assets/aistudio/Screenshot_2026-10-25_224153_937514fc.png",
-                aspect: "aspect-[3/4]"
-              },
-              {
-                title: "Palace Destination Royalty",
-                event: "Grand Evening Reception",
-                image: "/assets/aistudio/Screenshot_2026-10-25_223541_a11b4b30.png",
-                aspect: "aspect-[3/4]"
-              }
-            ].map((look, i) => (
-              <div
-                key={i}
-                className="group relative bg-[#160F24] border border-[#705EFF]/30 p-2 sm:p-2.5 shadow-xl hover:border-[#FF6082] hover:shadow-[0_12px_35px_rgba(255,96,130,0.25)] transition-all duration-500 flex flex-col justify-between"
-              >
-                {/* 4 Corner Accents */}
-                <div className="absolute top-1 left-1 w-2.5 h-2.5 border-t border-l border-[#FF6082] opacity-75 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" />
-                <div className="absolute top-1 right-1 w-2.5 h-2.5 border-t border-r border-[#FF6082] opacity-75 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" />
-                <div className="absolute bottom-1 left-1 w-2.5 h-2.5 border-b border-l border-[#B26CFF] opacity-75 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" />
-                <div className="absolute bottom-1 right-1 w-2.5 h-2.5 border-b border-r border-[#B26CFF] opacity-75 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" />
-
-                {/* Inner Bordered Image Container - Engineered to show full photo */}
-                <div className="relative w-full aspect-[4/5] overflow-hidden border border-[#705EFF]/25 bg-[#09040F] flex items-center justify-center">
-                  <img
-                    src={look.image}
-                    alt={look.title}
-                    className="w-full h-full object-contain filter brightness-[0.98] contrast-[1.02] group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                  />
-
-                  {/* Shimmer sweep */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#FF6082]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
-                </div>
-
-                {/* Caption Plate Below Image */}
-                <div className="pt-2.5 pb-1 px-1.5 flex flex-col justify-start">
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-[#FF6082] font-semibold block mb-0.5">
-                    {look.event}
-                  </span>
-                  <h4 className="font-serif text-base text-[#FFE4F6] group-hover:text-[#FF6082] transition-colors leading-snug">
-                    {look.title}
-                  </h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Global Luxury Kit Vault */}
-        <div className="bg-[#160F24] border border-[#705EFF]/30 p-8 sm:p-12 mb-20 relative">
+        {/* The Kit Archive */}
+        <div className="glass-panel p-6 sm:p-12 mb-16 sm:mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
             <div className="lg:col-span-5">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
-                THE KIT ARCHIVE
+              <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold block mb-2">
+                AUTHENTIC PRODUCT ARCHIVE
               </span>
-              <h2 className="font-serif text-2xl sm:text-4xl text-[#FFE4F6] font-normal mt-1 mb-4">
+              <h3 className="font-serif text-2xl sm:text-4xl text-[#1A0B26] font-normal mb-4">
                 Global Luxury Formulations
-              </h2>
-              <p className="text-xs sm:text-sm text-[#D8CEE8] font-light leading-relaxed mb-6">
-                Your skin touches only authentic, non-comedogenic luxury cosmetics imported directly from Paris, New York, and London. Zero compromise on camera flash-back, tear-resistance, and luminous longevity.
+              </h3>
+              <p className="text-xs sm:text-sm text-[#4A3A5E] font-light leading-relaxed mb-6">
+                Your skin touches only authentic, non-comedogenic luxury cosmetics imported from Paris, London, and New York. Zero flashback, sweatproof longevity, and luminous glass skin all night.
               </p>
-              <div className="flex items-center gap-3 text-xs text-[#FFE4F6]">
+              <div className="flex items-center gap-2.5 text-xs text-[#705EFF] font-semibold">
                 <ShieldCheck className="w-4 h-4 text-[#FF6082]" />
                 <span>100% Guaranteed Original & Sanitized Tools</span>
               </div>
             </div>
 
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {ARTIST_DATA.luxuryProducts.map((prod) => (
-                  <div
-                    key={prod.brand}
-                    className="p-3.5 bg-[#0D0714] border border-[#705EFF]/25 flex flex-col justify-between hover:border-[#FF6082]/60 transition-colors"
-                  >
-                    <span className="font-serif text-sm text-[#FFE4F6] font-normal">
+                  <div key={prod.brand} className="glass-card p-3.5 text-center">
+                    <span className="font-serif text-sm font-semibold text-[#1A0B26] block">
                       {prod.brand}
                     </span>
-                    <span className="text-[10px] text-[#9E8EB0] mt-1 line-clamp-2">
+                    <span className="text-[10px] text-[#7A698F] mt-1 block">
                       {prod.item}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </div>
 
-        {/* Bridal FAQs */}
-        <div className="max-w-3xl mx-auto bg-[#160F24] border border-[#705EFF]/30 p-8 sm:p-10 mb-16 shadow-xl">
-          <div className="text-center mb-8">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#FF6082] font-semibold">
-              BRIDAL ADVISORY
+        {/* Frequently Asked Questions */}
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold block mb-2">
+              FREQUENT INQUIRIES
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#FFE4F6] mt-1 font-normal">
-              Frequently Asked Bridal Questions
-            </h2>
+            <h3 className="font-serif text-2xl sm:text-3xl text-[#1A0B26]">
+              Bridal Concierge FAQs
+            </h3>
           </div>
 
           <div className="space-y-4">
-            {FAQ_ITEMS.map((item, idx) => (
-              <div key={idx} className="border-b border-[#705EFF]/20 pb-4 last:border-b-0">
-                <h4 className="text-xs uppercase tracking-wider text-[#FFE4F6] font-semibold mb-2">
-                  {item.q}
+            {FAQ_ITEMS.map((faq, idx) => (
+              <div key={idx} className="glass-card p-5 sm:p-6">
+                <h4 className="font-serif text-base sm:text-lg text-[#1A0B26] font-semibold mb-2">
+                  {faq.q}
                 </h4>
-                <p className="text-xs text-[#D8CEE8] leading-relaxed font-light">
-                  {item.a}
+                <p className="text-xs sm:text-sm text-[#4A3A5E] font-light leading-relaxed">
+                  {faq.a}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Final CTA */}
-        <div className="text-center">
-          <button
-            onClick={onBookBridal}
-            className="inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.25em] font-bold transition-opacity shadow-xl shadow-[#705EFF]/30 cursor-pointer"
-          >
-            <span>START YOUR BRIDAL CONSULTATION</span>
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </button>
         </div>
 
       </div>

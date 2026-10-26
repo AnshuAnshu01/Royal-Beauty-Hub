@@ -3,12 +3,12 @@ import { ShieldCheck, FileText, CheckCircle2 } from 'lucide-react';
 import { ARTIST_DATA } from '../data/makeupData';
 
 interface TermsPageProps {
-  currentLang: 'EN' | 'HI';
+  currentLang?: 'EN' | 'HI';
 }
 
-export const TermsPage: React.FC<TermsPageProps> = ({ currentLang }) => {
+export const TermsPage: React.FC<TermsPageProps> = () => {
   return (
-    <div className="pt-24 pb-28 bg-[#0D0714] min-h-screen">
+    <div className="pt-10 pb-20 bg-[#FAF7FC] min-h-screen text-[#1A0B26]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

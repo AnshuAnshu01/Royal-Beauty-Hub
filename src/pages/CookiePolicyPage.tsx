@@ -3,15 +3,15 @@ import { Cookie, ShieldCheck, CheckCircle2, RotateCcw } from 'lucide-react';
 
 interface CookiePolicyPageProps {
   onResetPreferences: () => void;
-  currentLang: 'EN' | 'HI';
+  currentLang?: 'EN' | 'HI';
 }
 
-export const CookiePolicyPage: React.FC<CookiePolicyPageProps> = ({ onResetPreferences, currentLang }) => {
+export const CookiePolicyPage: React.FC<CookiePolicyPageProps> = ({ onResetPreferences }) => {
   const [currentConsent, setCurrentConsent] = useState<any>(null);
   const [resetMessage, setResetMessage] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('ga_cookie_consent');
+    const consent = localStorage.getItem('rbh_cookie_consent') || localStorage.getItem('ga_cookie_consent');
     if (consent) {
       try {
         setCurrentConsent(JSON.parse(consent));
@@ -22,6 +22,7 @@ export const CookiePolicyPage: React.FC<CookiePolicyPageProps> = ({ onResetPrefe
   }, []);
 
   const handleReset = () => {
+    localStorage.removeItem('rbh_cookie_consent');
     localStorage.removeItem('ga_cookie_consent');
     setCurrentConsent(null);
     setResetMessage(true);
@@ -30,7 +31,7 @@ export const CookiePolicyPage: React.FC<CookiePolicyPageProps> = ({ onResetPrefe
   };
 
   return (
-    <div className="pt-24 pb-28 bg-[#0D0714] min-h-screen">
+    <div className="pt-10 pb-20 bg-[#FAF7FC] min-h-screen text-[#1A0B26]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

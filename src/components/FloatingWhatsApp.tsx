@@ -1,42 +1,28 @@
-import React, { useState } from 'react';
-import { MessageCircle, X } from 'lucide-react';
+import React from 'react';
+import { MessageCircle } from 'lucide-react';
 import { ARTIST_DATA } from '../data/makeupData';
 
 export const FloatingWhatsApp: React.FC = () => {
-  const [showTooltip, setShowTooltip] = useState(true);
-
   return (
-    <div className="hidden lg:flex fixed bottom-8 right-6 z-40 items-center gap-3">
-      {/* Subtle Luxury Tooltip */}
-      {showTooltip && (
-        <div className="hidden sm:flex items-center gap-2 bg-[#160F24] border border-[#705EFF]/40 text-[#FFE4F6] px-3.5 py-2 shadow-2xl animate-in fade-in slide-in-from-right-4 duration-300">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#FF6082] animate-pulse" />
-          <span className="text-[11px] uppercase tracking-wider text-[#FFE4F6] font-medium">
-            Chat with Gautam
-          </span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowTooltip(false);
-            }}
-            className="text-[#9E8EB0] hover:text-[#FF6082] ml-1"
-          >
-            <X className="w-3 h-3" />
-          </button>
-        </div>
-      )}
-
-      {/* Floating Anchor with royal jewel gradient */}
+    <div className="hidden lg:flex fixed bottom-8 right-7 z-40">
       <a
         href={`https://wa.me/${ARTIST_DATA.whatsappNumber}?text=${encodeURIComponent(
-          "Hello Gautam! I'm interested in booking your luxury makeup services for my upcoming wedding event."
+          "Hello Royal Beauty Hub! I would like to inquire about bridal dates and service availability."
         )}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#705EFF] via-[#B26CFF] to-[#FF6082] text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group cursor-pointer border-2 border-[#0D0714] shadow-[#B26CFF]/30"
+        className="relative group flex items-center justify-center w-13 h-13 rounded-full bg-gradient-to-tr from-[#128C7E] via-[#25D366] to-[#25D366] text-white shadow-[0_8px_25px_rgba(37,211,102,0.35)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.5)] border-2 border-white hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
         aria-label="Direct WhatsApp Consultation"
+        title="Chat on WhatsApp"
       >
-        <MessageCircle className="w-7 h-7 fill-white stroke-white group-hover:scale-105 transition-transform" />
+        {/* Subtle Activity Ping Dot */}
+        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-[#25D366] border border-white" />
+        </span>
+
+        {/* Minimal WhatsApp Icon */}
+        <MessageCircle className="w-6 h-6 fill-white stroke-white group-hover:scale-105 transition-transform" />
       </a>
     </div>
   );

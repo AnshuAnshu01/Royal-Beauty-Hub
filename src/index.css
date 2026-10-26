@@ -6,27 +6,30 @@
     --color-blush: #FFE4F6;
     --color-lilac: #B26CFF;
     --color-violet: #705EFF;
+    --color-royal-blue: #1E3A8A;
+    --color-electric-blue: #2563EB;
     
-    --bg-night: #0D0714;
-    --bg-dark-surface: #160F24;
-    --bg-card: #1E1430;
-    --bg-card-hover: #261A3D;
+    --bg-page: #FAF7FC;
+    --bg-surface: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-subtle: #F5EEF9;
 
-    --text-silk: #FFE4F6;
-    --text-lavender: #E5D5EE;
-    --text-muted: #9E8EB0;
+    --text-primary: #1A0B26;
+    --text-secondary: #4A3A5E;
+    --text-muted: #7A698F;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    overscroll-behavior-y: none;
+    background-color: #FAF7FC;
+    color: #1A0B26;
   }
 
   body {
-    background-color: #0D0714;
-    color: #FFE4F6;
+    background-color: #FAF7FC;
+    color: #1A0B26;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -67,63 +70,85 @@
 
   /* Custom subtle royal scrollbar */
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0D0714;
+    background: #FAF7FC;
   }
   ::-webkit-scrollbar-thumb {
-    background: #B26CFF44;
-    border-radius: 3px;
+    background: #B26CFF55;
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #B26CFF88;
+    background: #705EFF88;
   }
 }
 
 @keyframes progress {
-  0% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
 }
 
-/* Royal luxury gradient utilities based on client palette */
-.royal-gradient-text,
-.gold-gradient-text {
-  background: linear-gradient(135deg, #FFE4F6 0%, #B26CFF 50%, #FF6082 100%);
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* ============================================================
+   GLASSMORPHISM & TEXT REVEAL UTILITIES
+   ============================================================ */
+
+/* Text Blue Reveal Effect for Headings on Scroll */
+.text-blue-reveal {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 25%, #705EFF 65%, #B26CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShimmer 7s ease-in-out infinite alternate;
+}
+
+/* Luxury Glassmorphic Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(112, 94, 255, 0.16);
+  box-shadow: 0 10px 30px -5px rgba(112, 94, 255, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(112, 94, 255, 0.16);
+  box-shadow: 0 8px 24px -4px rgba(112, 94, 255, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(112, 94, 255, 0.38);
+  box-shadow: 0 16px 36px -6px rgba(112, 94, 255, 0.14), 0 0 20px -3px rgba(255, 96, 130, 0.15);
+  transform: translateY(-2px);
+}
+
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(112, 94, 255, 0.20);
+  box-shadow: 0 16px 40px -8px rgba(112, 94, 255, 0.18);
+}
+
+/* Gradient text utilities */
+.royal-gradient-text {
+  background: linear-gradient(135deg, #1A0B26 0%, #705EFF 50%, #FF6082 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.royal-gradient-bg,
-.gold-gradient-bg {
-  background: linear-gradient(135deg, #705EFF 0%, #B26CFF 50%, #FF6082 100%);
-}
-
-.royal-border-glow,
-.gold-border-glow {
-  box-shadow: 0 0 25px -5px rgba(178, 108, 255, 0.22);
-}
-
-.royal-border-glow-hover:hover,
-.gold-border-glow-hover:hover {
-  box-shadow: 0 0 30px -5px rgba(255, 96, 130, 0.32);
-}
-
-/* ============================================================
-   DUAL THEME ENGINE: DARK & LIGHT THEME STYLES
-   Engineered to guarantee 100% text visibility in both modes
-   ============================================================ */
-
-/* 1. Global Gradient Clip-Text Protection (Both Dark & Light)
-   Never allow solid text color to override transparent gradient text */
 .bg-clip-text,
 [class*="bg-clip-text"],
 .text-transparent,
@@ -132,8 +157,7 @@
   -webkit-text-fill-color: transparent !important;
 }
 
-/* 2. Global CTA Button Text Protection
-   Buttons with vibrant gradient fills must always have crisp white text */
+/* Global CTA Button Text Protection */
 button[class*="bg-gradient"],
 a[class*="bg-gradient"],
 [class*="bg-gradient-to-r"].text-white,
@@ -141,270 +165,26 @@ a[class*="bg-gradient"],
   color: #FFFFFF !important;
 }
 
-/* 3. Dark Theme Defaults */
-html.dark,
-html:not(.light) {
-  color-scheme: dark;
-}
-
-html.dark body,
-html:not(.light) body {
-  background-color: #0D0714;
-  color: #FFE4F6;
-}
-
-/* Dark Mode Inputs and Options */
-html.dark input,
-html.dark select,
-html.dark textarea,
-html:not(.light) input,
-html:not(.light) select,
-html:not(.light) textarea {
-  background-color: #160F24 !important;
-  color: #FFE4F6 !important;
-  border-color: rgba(112, 94, 255, 0.35) !important;
-}
-
-html.dark select option,
-html:not(.light) select option {
-  background-color: #160F24 !important;
-  color: #FFE4F6 !important;
-}
-
-html.dark input::placeholder,
-html.dark textarea::placeholder,
-html:not(.light) input::placeholder,
-html:not(.light) textarea::placeholder {
-  color: rgba(229, 213, 238, 0.5) !important;
-}
-
-/* ============================================================
-   LIGHT THEME MODE (html.light)
-   ============================================================ */
-html.light {
-  color-scheme: light;
-}
-
-html.light body {
-  background-color: #FAF7FC !important;
-  color: #1F112B !important;
-}
-
-/* Surface & Card Backgrounds */
-html.light .bg-\[\#0D0714\] {
-  background-color: #FAF7FC !important;
-}
-html.light .bg-\[\#08040E\] {
-  background-color: #F3EBF7 !important;
-}
-html.light .bg-\[\#160F24\] {
+/* Form Inputs & Select Styling */
+input, select, textarea {
   background-color: #FFFFFF !important;
+  color: #1A0B26 !important;
+  border-color: rgba(112, 94, 255, 0.28) !important;
 }
-html.light .bg-\[\#160F24\]\/90,
-html.light .bg-\[\#160F24\]\/80,
-html.light .bg-\[\#160F24\]\/70 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
-}
-html.light .bg-\[\#1E1430\] {
+
+select option {
   background-color: #FFFFFF !important;
-}
-html.light .bg-\[\#09040F\] {
-  background-color: #F2EAF6 !important;
-}
-html.light .bg-\[\#100A1A\] {
-  background-color: #FCF9FD !important;
-}
-html.light .bg-\[\#1E132D\] {
-  background-color: #FFFFFF !important;
-}
-html.light .bg-\[\#261A3D\] {
-  background-color: #F4EDF8 !important;
+  color: #1A0B26 !important;
 }
 
-/* Content Text Overrides for High Contrast Luxury Readability */
-html.light .text-\[\#FFE4F6\]:not([class*="bg-clip"]):not([class*="text-transparent"]):not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: #1F112B !important;
-}
-html.light .text-\[\#FFE4F6\]\/90:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *),
-html.light .text-\[\#FFE4F6\]\/80:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *),
-html.light .text-\[\#FFE4F6\]\/75:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *),
-html.light .text-\[\#FFE4F6\]\/70:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: #2D1B3D !important;
-}
-html.light .text-\[\#FFE4F6\]\/60:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *),
-html.light .text-\[\#FFE4F6\]\/50:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: #4D3960 !important;
-}
-html.light .text-\[\#D8CEE8\]:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: #38264A !important;
-}
-html.light .text-\[\#D8CEE8\]\/80:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: rgba(56, 38, 74, 0.85) !important;
-}
-html.light .text-\[\#E5D5EE\]:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: #322044 !important;
-}
-html.light .text-\[\#9E8EB0\]:not(#hero-section *):not([class*="bg-gradient-to-r"] *):not([class*="backdrop-blur"] *) {
-  color: #5F4D70 !important;
-}
-
-/* --- HERO SECTION EXCEPTION ---
-   Hero always features the dark cinematic background video:
-   ALL Hero headline/kicker text remains luminous/white so it never disappears */
-html.light #hero-section,
-html.light #hero-section h1,
-html.light #hero-section h2,
-html.light #hero-section h3,
-html.light #hero-section p,
-html.light #hero-section span:not([class*="text-transparent"]):not([class*="bg-clip-text"]):not(.hero-explore-btn *),
-html.light #hero-section div:not([class*="border"]):not(.hero-explore-btn) {
-  color: #FFE4F6 !important;
-}
-
-html.light #hero-section p.text-\[\#D8CEE8\] {
-  color: #D8CEE8 !important;
-}
-
-html.light #hero-section .text-\[\#FF6082\] {
-  color: #FF6082 !important;
-}
-
-html.light #hero-section .bg-\[\#0D0714\] {
-  background-color: transparent !important;
-}
-
-/* Seamless Hero Full-Width Scrim Overlays - No Side Partition */
-.hero-main-scrim {
-  background: linear-gradient(90deg, rgba(13, 7, 20, 0.75) 0%, rgba(13, 7, 20, 0.35) 55%, rgba(13, 7, 20, 0.15) 100%);
-}
-
-html.light .hero-main-scrim {
-  background: linear-gradient(90deg, rgba(13, 7, 20, 0.50) 0%, rgba(13, 7, 20, 0.20) 55%, rgba(13, 7, 20, 0.05) 100%) !important;
-}
-
-/* Hero Explore / Services Button: High Contrast in Both Modes */
-html.dark .hero-explore-btn,
-html:not(.light) .hero-explore-btn {
-  background-color: rgba(22, 15, 36, 0.8) !important;
-  border-color: rgba(178, 108, 255, 0.5) !important;
-  color: #FFFFFF !important;
-}
-html.dark .hero-explore-btn:hover,
-html:not(.light) .hero-explore-btn:hover {
-  background-color: rgba(22, 15, 36, 1) !important;
-  border-color: #FF6082 !important;
-}
-html.dark .hero-explore-btn-text,
-html:not(.light) .hero-explore-btn-text {
-  color: #FFFFFF !important;
-}
-
-/* In Light Mode: Hero Services button is a crisp white card with deep dark text */
-html.light .hero-explore-btn {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(112, 94, 255, 0.4) !important;
-  color: #1F112B !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18) !important;
-}
-html.light .hero-explore-btn:hover {
-  background-color: #FFFFFF !important;
-  border-color: #FF6082 !important;
-}
-html.light .hero-explore-btn-text,
-html.light .hero-explore-btn * {
-  color: #1F112B !important;
-}
-html.light .hero-explore-btn .text-\[\#FF6082\] {
-  color: #FF6082 !important;
-}
-
-/* --- BADGES OVER PHOTOS EXCEPTION ---
-   Badges that float on photos / media must stay dark-backed with crisp white text */
-html.light [class*="bg-\[\#0D0714\]\/90"],
-html.light [class*="bg-\[\#0D0714\]\/95"] {
-  background-color: rgba(13, 7, 20, 0.88) !important;
-  color: #FFFFFF !important;
-}
-
-html.light [class*="bg-\[\#0D0714\]\/90"] *,
-html.light [class*="bg-\[\#0D0714\]\/95"] * {
-  color: #FFFFFF !important;
-}
-
-/* Floating Before/After and Gallery Badges */
-html.light span[class*="backdrop-blur-sm"],
-html.light span[class*="backdrop-blur-md"] {
-  color: #FFFFFF !important;
-}
-
-/* Preserve Gradient Clipped Headlines in Light Mode */
-html.light .bg-clip-text,
-html.light [class*="bg-clip-text"],
-html.light .text-transparent,
-html.light [class*="text-transparent"] {
-  color: transparent !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
-/* Buttons in Light Mode */
-html.light button.bg-gradient-to-r,
-html.light a.bg-gradient-to-r,
-html.light .bg-gradient-to-r {
-  color: #FFFFFF !important;
-}
-
-html.light button.bg-gradient-to-r *,
-html.light a.bg-gradient-to-r *,
-html.light .bg-gradient-to-r * {
-  color: #FFFFFF !important;
-}
-
-/* Subtle Royal Lavender Borders & Soft Glows */
-html.light .border-\[\#705EFF\]\/20,
-html.light .border-\[\#705EFF\]\/25,
-html.light .border-\[\#705EFF\]\/30,
-html.light .border-\[\#705EFF\]\/35,
-html.light .border-\[\#705EFF\]\/40,
-html.light .border-\[\#705EFF\]\/45,
-html.light .border-\[\#705EFF\]\/50 {
-  border-color: rgba(112, 94, 255, 0.18) !important;
-}
-
-html.light .shadow-2xl,
-html.light .shadow-xl {
-  box-shadow: 0 12px 30px -4px rgba(112, 94, 255, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03) !important;
-}
-
-html.light .royal-border-glow {
-  box-shadow: 0 4px 20px -2px rgba(112, 94, 255, 0.12) !important;
-}
-
-/* Form Inputs & Select in Light Mode */
-html.light input,
-html.light select,
-html.light textarea {
-  background-color: #FFFFFF !important;
-  color: #1F112B !important;
-  border-color: rgba(112, 94, 255, 0.3) !important;
-}
-
-html.light select option {
-  background-color: #FFFFFF !important;
-  color: #1F112B !important;
-}
-
-html.light input::placeholder,
-html.light textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #7A698F !important;
 }
 
-/* Light Mode Scrollbar */
-html.light ::-webkit-scrollbar-track {
-  background: #FAF7FC;
-}
-html.light ::-webkit-scrollbar-thumb {
-  background: #B26CFF55;
-}
-html.light ::-webkit-scrollbar-thumb:hover {
-  background: #B26CFF99;
+/* Global Smooth Transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 200ms;
 }

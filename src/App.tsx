@@ -13,6 +13,8 @@ import { ServicesPage } from './pages/ServicesPage';
 import { BridalPage } from './pages/BridalPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { TransformationsPage } from './pages/TransformationsPage';
+import { FounderPage } from './pages/FounderPage';
+import { LocationsPage } from './pages/LocationsPage';
 import { AboutPage } from './pages/AboutPage';
 import { ReviewsPage } from './pages/ReviewsPage';
 import { ContactPage } from './pages/ContactPage';
@@ -22,7 +24,6 @@ import { MakeupService, GalleryItem, TransformationItem } from './data/makeupDat
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageRoute>('home');
-  const [currentLang, setCurrentLang] = useState<'EN' | 'HI'>('EN');
 
   // Floating Booking Modal State
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -31,37 +32,6 @@ export default function App() {
 
   // Mobile Menu State
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Theme State: 'dark' | 'light' with localStorage persistence and default
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    try {
-      const saved = localStorage.getItem('rbh_theme');
-      if (saved === 'dark' || saved === 'light') return saved;
-    } catch {
-      // ignore
-    }
-    return 'dark';
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('rbh_theme', theme);
-    } catch {
-      // ignore
-    }
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-      root.classList.remove('dark');
-    } else {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    }
-  }, [theme]);
-
-  const handleToggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   // Key to force-remount CookieBanner if user resets from policy page
   const [cookieBannerKey, setCookieBannerKey] = useState(0);
@@ -80,7 +50,6 @@ export default function App() {
 
   // Always open to Home page on initial load / refresh, clearing any hash
   useEffect(() => {
-    // Force reset to home page on page load / reload
     setCurrentPage('home');
     if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -94,6 +63,8 @@ export default function App() {
         'bridal',
         'gallery',
         'transformations',
+        'founder',
+        'locations',
         'about',
         'reviews',
         'contact',
@@ -128,30 +99,21 @@ export default function App() {
   };
 
   const handleResetCookiePreferences = () => {
-    // Trigger remount of banner
     setCookieBannerKey((k) => k + 1);
   };
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-300 ${
-        theme === 'light' ? 'bg-[#FAF7FC] text-[#1F112B]' : 'bg-[#0D0714] text-[#FFE4F6]'
-      } selection:bg-[#FF6082]/30 selection:text-[#FFE4F6] flex flex-col justify-between`}
-    >
-      {/* Clean Luxury Preloader */}
+    <div className="min-h-screen bg-[#FAF7FC] text-[#1A0B26] selection:bg-[#FF6082]/20 selection:text-[#1A0B26] flex flex-col justify-between">
+      {/* Luxury Loading Animation Screen */}
       <LuxuryPreloader />
 
-      {/* 1. Minimal Sticky Navigation */}
+      {/* 1. Sticky Minimal Navigation (Zero overlap with Hero) */}
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
         onBookClick={() => handleOpenBookingModal()}
-        currentLang={currentLang}
-        onLangToggle={setCurrentLang}
         isMobileMenuOpen={isMobileMenuOpen}
         onMobileMenuToggle={setIsMobileMenuOpen}
-        theme={theme}
-        onToggleTheme={handleToggleTheme}
       />
 
       {/* 2. Distinct Page Views */}
@@ -160,95 +122,95 @@ export default function App() {
           <HomePage
             onOpenBookingModal={handleOpenBookingModal}
             onNavigate={handleNavigate}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'services' && (
           <ServicesPage
             onSelectServiceToBook={(service: MakeupService) => handleOpenBookingModal(service.id)}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'bridal' && (
           <BridalPage
             onBookBridal={() => handleOpenBookingModal('royal-bridal')}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'gallery' && (
           <GalleryPage
             onBookLook={(look: GalleryItem) => handleOpenBookingModal(undefined, look.title)}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'transformations' && (
           <TransformationsPage
             onBookTransformation={(item: TransformationItem) => handleOpenBookingModal(undefined, item.title)}
-            currentLang={currentLang}
+          />
+        )}
+
+        {currentPage === 'founder' && (
+          <FounderPage
+            onBookClick={() => handleOpenBookingModal()}
+          />
+        )}
+
+        {currentPage === 'locations' && (
+          <LocationsPage
+            onBookClick={() => handleOpenBookingModal()}
           />
         )}
 
         {currentPage === 'about' && (
           <AboutPage
             onBookConsultation={() => handleOpenBookingModal()}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'reviews' && (
           <ReviewsPage
             onBookClick={() => handleOpenBookingModal()}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'contact' && (
           <ContactPage
             onOpenBookingModal={() => handleOpenBookingModal()}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'cookie-policy' && (
           <CookiePolicyPage
             onResetPreferences={handleResetCookiePreferences}
-            currentLang={currentLang}
           />
         )}
 
         {currentPage === 'terms' && (
-          <TermsPage
-            currentLang={currentLang}
-          />
+          <TermsPage />
         )}
       </main>
 
-      {/* 3. Luxury Dark Footer with ACCustomLabs Center Credit & Legal Links */}
+      {/* 3. Luxury Dark Footer with Big Logo & Center Credit */}
       <Footer
         onNavigate={handleNavigate}
         onBookClick={(serviceId) => handleOpenBookingModal(serviceId)}
       />
 
-      {/* 4. Floating Booking Modal (Opens when Book Now is clicked) */}
+      {/* 4. Floating Booking Modal */}
       <BookingModal
         isOpen={isBookingModalOpen}
         onClose={handleCloseBookingModal}
         initialServiceId={modalInitialService}
         initialLookTitle={modalInitialLook}
-        currentLang={currentLang}
       />
 
-      {/* 5. Functional Cookie Consent Banner (Always shows for new users) */}
+      {/* 5. Functional Cookie Consent Banner */}
       <CookieBanner
         key={cookieBannerKey}
         onNavigateToPolicy={() => handleNavigate('cookie-policy')}
       />
 
-      {/* 6, 7, 8. Floating Controls: Only render when mobile menu is closed */}
+      {/* 6. Floating Minimal WhatsApp & Mobile Quick Bar */}
       {!isMobileMenuOpen && (
         <>
           <ScrollToTop />
@@ -257,8 +219,6 @@ export default function App() {
             currentPage={currentPage}
             onNavigate={handleNavigate}
             onBookClick={() => handleOpenBookingModal()}
-            currentLang={currentLang}
-            theme={theme}
           />
         </>
       )}
