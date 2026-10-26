@@ -27,8 +27,8 @@ export const ScrollToTop: React.FC = () => {
     });
   };
 
-  const radius = 18;
-  const circumference = 2 * Math.PI * radius; // ~113.097
+  const radius = 17;
+  const circumference = 2 * Math.PI * radius; // ~106.81
   const strokeDashoffset = circumference - (scrollProgress / 100) * circumference;
 
   if (!visible) return null;
@@ -36,7 +36,7 @@ export const ScrollToTop: React.FC = () => {
   return (
     <button
       onClick={scrollToTop}
-      className="hidden lg:flex fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-[#0D0714]/95 backdrop-blur-md items-center justify-center group shadow-2xl hover:shadow-[0_0_25px_rgba(178,108,255,0.45)] transition-all duration-300 cursor-pointer border border-[#705EFF]/40 hover:border-[#B26CFF] animate-in fade-in zoom-in-75"
+      className="fixed bottom-[132px] sm:bottom-24 right-4 sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#1A0B28]/95 backdrop-blur-md flex items-center justify-center group shadow-xl hover:shadow-[0_0_25px_rgba(178,108,255,0.45)] transition-all duration-300 cursor-pointer border border-[#705EFF]/40 hover:border-[#FF6082] animate-in fade-in zoom-in-75"
       aria-label="Scroll to top"
       title={`Scrolled ${Math.round(scrollProgress)}% - Click to return to top`}
     >
@@ -47,7 +47,7 @@ export const ScrollToTop: React.FC = () => {
           cx="22"
           cy="22"
           r={radius}
-          className="text-[#705EFF]/20"
+          className="text-[#705EFF]/25"
           stroke="currentColor"
           strokeWidth="2.5"
           fill="transparent"

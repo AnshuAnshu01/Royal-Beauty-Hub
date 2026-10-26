@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Calendar } from 'lucide-react';
+import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { ARTIST_DATA } from '../data/makeupData';
 
 interface ContactPageProps {
@@ -91,7 +92,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenBookingModal }) 
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-wider font-bold shadow-md hover:opacity-95 transition-all rounded-sm"
               >
-                <MessageCircle className="w-4 h-4 fill-white stroke-white" />
+                <WhatsAppIcon className="w-4 h-4 fill-white" />
                 <span>Chat with us on WhatsApp</span>
               </a>
             </div>

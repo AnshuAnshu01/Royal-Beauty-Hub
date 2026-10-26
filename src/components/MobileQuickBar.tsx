@@ -48,22 +48,6 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({
 
   return (
     <>
-      {/* Minimal Floating WhatsApp Icon Button for Smartphones in Royal Palette */}
-      <div className="lg:hidden fixed bottom-[72px] right-4 z-40 pointer-events-auto">
-        <a
-          href={`https://wa.me/${ARTIST_DATA.whatsappNumber}?text=${encodeURIComponent(
-            "Hello Royal Beauty Hub! I'd like to inquire about bridal dates and service availability."
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-tr from-[#705EFF] via-[#B26CFF] to-[#FF6082] text-white shadow-lg shadow-[#705EFF]/30 border border-white/60 active:scale-95 transition-transform"
-          aria-label="Direct WhatsApp Consultation"
-          title="WhatsApp"
-        >
-          <MessageCircle className="w-5 h-5 fill-white stroke-white" />
-        </a>
-      </div>
-
       {/* Modern Luxury Smartphone Bottom Navigation Bar */}
       <nav
         role="navigation"

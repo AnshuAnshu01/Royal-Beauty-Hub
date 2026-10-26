@@ -102,6 +102,42 @@ export default function App() {
     setCookieBannerKey((k) => k + 1);
   };
 
+  // Global scroll text blur revealing effect across the entire website
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const targets = document.querySelectorAll(
+        'h1:not(#hero-section h1), h2, h3, .font-serif:not(#hero-section .font-serif), .scroll-blur-target'
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -20px 0px'
+        }
+      );
+
+      targets.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          el.classList.add('revealed');
+        }
+        el.classList.add('scroll-blur-reveal');
+        observer.observe(el);
+      });
+
+      return () => observer.disconnect();
+    }, 80);
+
+    return () => clearTimeout(timer);
+  }, [currentPage]);
+
   return (
     <div className="min-h-screen bg-[#FAF7FC] text-[#1A0B26] selection:bg-[#FF6082]/20 selection:text-[#1A0B26] flex flex-col justify-between">
       {/* Luxury Loading Animation Screen */}
@@ -116,8 +152,8 @@ export default function App() {
         onMobileMenuToggle={setIsMobileMenuOpen}
       />
 
-      {/* 2. Distinct Page Views */}
-      <main className="flex-1 pb-20 lg:pb-0">
+      {/* 2. Distinct Page Views with Smooth Transition */}
+      <main key={currentPage} className="flex-1 pb-20 lg:pb-0 animate-in fade-in duration-300">
         {currentPage === 'home' && (
           <HomePage
             onOpenBookingModal={handleOpenBookingModal}

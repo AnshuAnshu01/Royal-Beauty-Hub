@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, MessageCircle, Calendar, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle2, Calendar, ShieldCheck } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { SERVICES, ARTIST_DATA } from '../data/makeupData';
 
 interface BookingModalProps {
@@ -294,7 +295,7 @@ Notes: ${formData.message || 'None'}`;
                   onClick={handleWhatsAppDirect}
                   className="py-3.5 px-6 border border-[#705EFF]/50 text-[#705EFF] hover:bg-gradient-to-r hover:from-[#FF6082] hover:to-[#705EFF] hover:text-white hover:border-transparent text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer rounded-sm"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current" />
                   <span>Chat on WhatsApp</span>
                 </button>
               </div>

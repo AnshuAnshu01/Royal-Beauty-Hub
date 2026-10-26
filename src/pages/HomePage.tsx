@@ -3,7 +3,7 @@ import { Hero } from '../components/Hero';
 import { TrustStrip } from '../components/TrustStrip';
 import { PageRoute } from '../components/Navbar';
 import { SERVICES, GALLERY_ITEMS, TESTIMONIALS } from '../data/makeupData';
-import { ArrowRight, Sparkles, Star, Eye, Crown, Clock, Check } from 'lucide-react';
+import { ArrowRight, Eye, Crown, Clock, Check, Quote } from 'lucide-react';
 
 interface HomePageProps {
   onOpenBookingModal: (serviceId?: string, lookTitle?: string) => void;
@@ -370,10 +370,12 @@ export const HomePage: React.FC<HomePageProps> = ({
             {featuredReviews.map((review) => (
               <div key={review.id} className="glass-card p-6 sm:p-8 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-1 text-[#FF6082] mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
+                  <div className="flex items-center justify-between mb-4">
+                    <Quote className="w-5 h-5 text-[#FF6082]" />
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-[#705EFF] font-semibold bg-[#705EFF]/10 px-2 py-0.5 rounded-sm">
+                      <Check className="w-3 h-3 text-[#FF6082]" />
+                      Verified Bride
+                    </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[#4A3A5E] font-light leading-relaxed italic mb-6">
                     "{review.review}"

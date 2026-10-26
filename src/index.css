@@ -140,6 +140,31 @@
 }
 
 /* ============================================================
+   SCROLL BLUR REVEAL & PAGE TRANSITIONS
+   ============================================================ */
+
+.scroll-blur-reveal {
+  opacity: 0.2;
+  filter: blur(8px);
+  transform: translateY(16px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+
+.scroll-blur-reveal.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Smooth Interactive Micro-Transitions */
+.transition-smooth {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
    GLASSMORPHISM & TEXT REVEAL UTILITIES
    ============================================================ */
 

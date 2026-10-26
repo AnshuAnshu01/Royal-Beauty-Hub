@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS, ARTIST_DATA } from '../data/makeupData';
 
 export const TestimonialsSection: React.FC = () => {
@@ -62,14 +62,12 @@ export const TestimonialsSection: React.FC = () => {
               key={t.id}
               className="bg-[#0D0714] border border-[#705EFF]/30 p-8 sm:p-10 flex flex-col justify-between relative shadow-xl hover:border-[#B26CFF] transition-all duration-300"
             >
-              {/* Royal Quote Mark & Stars */}
+              {/* Royal Quote Mark & Verified Indicator */}
               <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-1 text-[#FF6082]">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#FF6082] text-[#FF6082]" />
-                  ))}
-                </div>
-                <Quote className="w-8 h-8 text-[#B26CFF]/25" />
+                <span className="text-[11px] uppercase tracking-wider text-[#FF6082] font-semibold bg-[#FF6082]/10 px-2.5 py-1 rounded-sm">
+                  Verified Bride
+                </span>
+                <Quote className="w-8 h-8 text-[#B26CFF]/35" />
               </div>
 
               {/* Review Text */}

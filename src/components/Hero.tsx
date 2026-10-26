@@ -14,13 +14,26 @@ export const Hero: React.FC<HeroProps> = ({ onBookClick, onExploreClick }) => {
     >
       {/* Background Video Layer covering 100% of the Hero viewport frame */}
       <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Mobile Portrait Video (< 640px) */}
         <video
           autoPlay
           loop
           muted
           playsInline
           poster="/assets/aistudio/Royal Beauty Hub Logo.png"
-          className="w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.08] scale-105"
+          className="sm:hidden w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.08] scale-105"
+        >
+          <source src="/assets/mobilephoneview.mp4" type="video/mp4" />
+        </video>
+
+        {/* Desktop / Tablet Landscape Video (>= 640px) */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/assets/aistudio/Royal Beauty Hub Logo.png"
+          className="hidden sm:block w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.08] scale-105"
         >
           <source src="/assets/aistudio/HERO.mp4" type="video/mp4" />
         </video>

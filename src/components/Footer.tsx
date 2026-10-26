@@ -1,5 +1,6 @@
 import React from 'react';
-import { Instagram, MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
+import { Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { ARTIST_DATA } from '../data/makeupData';
 import { PageRoute } from './Navbar';
 
@@ -15,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
   };
 
   return (
-    <footer className="bg-[#08040E] border-t border-[#705EFF]/30 pt-16 pb-28 sm:pb-20 lg:pb-16 text-[#D8CEE8]">
+    <footer className="bg-[#200C3B]/92 backdrop-blur-2xl border-t border-[#705EFF]/30 pt-16 pb-28 sm:pb-20 lg:pb-16 text-[#E2D8EE] shadow-2xl relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-Column Grid */}
@@ -35,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
               />
             </button>
 
-            <p className="text-xs text-[#9E8EB0] leading-relaxed mb-6 font-light max-w-sm">
+            <p className="text-xs text-[#BFAFD4] leading-relaxed mb-6 font-light max-w-sm">
               Luxury bridal atelier dedicated to immortalizing timeless Indian grace, couture eye artistry, and radiant glass skin for royal weddings and celebrations worldwide.
             </p>
 
@@ -45,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
                 href={ARTIST_DATA.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#FF6082] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
+                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#FF6082] bg-[#2E1354]/80 text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105 rounded-sm"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -56,15 +57,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
                 href={`https://wa.me/${ARTIST_DATA.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#FF6082] bg-[#160F24] text-[#B26CFF] hover:bg-gradient-to-r hover:from-[#FF6082] hover:to-[#705EFF] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
+                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#FF6082] bg-[#2E1354]/80 text-[#B26CFF] hover:bg-gradient-to-r hover:from-[#FF6082] hover:to-[#705EFF] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105 rounded-sm"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4 fill-current" />
               </a>
 
               <a
                 href={`tel:${ARTIST_DATA.phone.replace(/\s+/g, '')}`}
-                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#B26CFF] bg-[#160F24] text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
+                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#B26CFF] bg-[#2E1354]/80 text-[#B26CFF] hover:text-[#FFE4F6] flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105 rounded-sm"
                 aria-label="Call"
               >
                 <Phone className="w-4 h-4" />
@@ -167,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
           <div className="text-center order-1 md:order-2 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
             <span>© {new Date().getFullYear()} Royal Beauty Hub. All rights reserved.</span>
             <span className="hidden sm:inline">•</span>
-            <span className="text-[#FF6082] font-medium tracking-[0.05em] py-0.5 border-b border-[#FF6082]/40 hover:text-[#FFE4F6] transition-colors">
+            <span className="text-[#FF6082] font-medium tracking-[0.05em] py-0.5 no-underline hover:text-[#FFE4F6] transition-colors">
               Designed and Developed by ACCustomLabs
             </span>
           </div>

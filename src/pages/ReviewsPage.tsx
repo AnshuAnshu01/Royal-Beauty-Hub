@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Quote, ArrowRight } from 'lucide-react';
+import { Quote, ArrowRight, Check } from 'lucide-react';
 import { TESTIMONIALS } from '../data/makeupData';
 
 interface ReviewsPageProps {
@@ -52,12 +52,9 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ onBookClick }) => {
             <div key={review.id} className="glass-card p-6 sm:p-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1 text-[#FF6082]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] uppercase tracking-wider text-[#705EFF] font-semibold bg-[#705EFF]/10 px-2 py-0.5 rounded-sm">
+                  <Quote className="w-5 h-5 text-[#FF6082]" />
+                  <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-[#705EFF] font-semibold bg-[#705EFF]/10 px-2 py-0.5 rounded-sm">
+                    <Check className="w-3 h-3 text-[#FF6082]" />
                     Verified Bride
                   </span>
                 </div>
