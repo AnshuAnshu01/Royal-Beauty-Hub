@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Sparkles, Crown, Images, Calendar, MessageCircle } from 'lucide-react';
+import { Home, Brush, Crown, Images, Calendar, MessageCircle } from 'lucide-react';
 import { ARTIST_DATA } from '../data/makeupData';
 import { PageRoute } from './Navbar';
 
@@ -29,7 +29,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({
     {
       id: 'services' as PageRoute,
       label: 'Services',
-      icon: Sparkles,
+      icon: Brush,
       isActive: currentPage === 'services'
     },
     {
@@ -48,23 +48,18 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({
 
   return (
     <>
-      {/* Minimal Floating WhatsApp Icon Button for Smartphones */}
-      <div className="lg:hidden fixed bottom-[72px] right-3.5 z-40 pointer-events-auto">
+      {/* Minimal Floating WhatsApp Icon Button for Smartphones in Royal Palette */}
+      <div className="lg:hidden fixed bottom-[72px] right-4 z-40 pointer-events-auto">
         <a
           href={`https://wa.me/${ARTIST_DATA.whatsappNumber}?text=${encodeURIComponent(
             "Hello Royal Beauty Hub! I'd like to inquire about bridal dates and service availability."
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-white shadow-xl shadow-black/25 border-2 border-white active:scale-95 transition-transform"
+          className="flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-tr from-[#705EFF] via-[#B26CFF] to-[#FF6082] text-white shadow-lg shadow-[#705EFF]/30 border border-white/60 active:scale-95 transition-transform"
           aria-label="Direct WhatsApp Consultation"
           title="WhatsApp"
         >
-          {/* Subtle Activity Ping */}
-          <span className="absolute -top-0.5 -right-0.5 flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#25D366] border border-white" />
-          </span>
           <MessageCircle className="w-5 h-5 fill-white stroke-white" />
         </a>
       </div>

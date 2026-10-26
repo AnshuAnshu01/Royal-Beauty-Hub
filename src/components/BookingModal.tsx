@@ -27,7 +27,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     hairstyling: 'Yes, Required',
     draping: 'Yes, Required',
     makeupStyle: 'HD Waterproof Glamour',
-    budgetRange: '₹20,000 – ₹35,000',
     message: ''
   });
 
@@ -85,7 +84,6 @@ Service: ${formData.makeupService}
 Hairstyling: ${formData.hairstyling}
 Draping: ${formData.draping}
 Entourage: ${formData.guestCount}
-Budget: ${formData.budgetRange}
 Notes: ${formData.message || 'None'}`;
 
     return encodeURIComponent(text);
@@ -271,15 +269,15 @@ Notes: ${formData.message || 'None'}`;
 
               <div>
                 <label className="block text-[11px] uppercase tracking-wider text-[#705EFF] mb-1 font-semibold">
-                  Special Notes or Bridal Vision
+                  Notes or Preferences (Optional)
                 </label>
                 <textarea
                   name="message"
                   rows={2}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Share outfit colors, jewellery styles, or specific preferences..."
-                  className="w-full bg-white border border-[#705EFF]/25 text-[#1A0B26] px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-[#705EFF] placeholder:text-[#7A698F]/60 resize-none"
+                  placeholder="Share outfit colors, ceremony timings, or any questions..."
+                  className="w-full bg-white border border-[#705EFF]/25 text-[#1A0B26] px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:border-[#705EFF] placeholder:text-[#7A698F]/60 resize-none rounded-sm"
                 />
               </div>
 
@@ -287,17 +285,17 @@ Notes: ${formData.message || 'None'}`;
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="flex-1 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.2em] font-bold shadow-lg shadow-[#FF6082]/25 cursor-pointer text-center"
+                  className="flex-1 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white text-xs uppercase tracking-[0.16em] font-bold shadow-lg shadow-[#FF6082]/25 cursor-pointer text-center rounded-sm"
                 >
-                  Submit Date Verification
+                  Send Booking Request
                 </button>
                 <button
                   type="button"
                   onClick={handleWhatsAppDirect}
-                  className="py-3.5 px-6 border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="py-3.5 px-6 border border-[#705EFF]/50 text-[#705EFF] hover:bg-gradient-to-r hover:from-[#FF6082] hover:to-[#705EFF] hover:text-white hover:border-transparent text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer rounded-sm"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Direct WhatsApp</span>
+                  <span>Chat on WhatsApp</span>
                 </button>
               </div>
 

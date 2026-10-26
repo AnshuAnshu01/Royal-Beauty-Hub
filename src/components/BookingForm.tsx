@@ -27,7 +27,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     hairstyling: 'Yes, Required',
     draping: 'Yes, Required',
     makeupStyle: 'HD Waterproof Glamour',
-    budgetRange: '₹20,000 – ₹35,000',
     message: initialLookTitle ? `Inquiring specifically about the "${initialLookTitle}" look shown in the gallery.` : ''
   });
 
@@ -66,7 +65,6 @@ Service: ${formData.makeupService}
 Hairstyling: ${formData.hairstyling}
 Draping: ${formData.draping}
 Entourage: ${formData.guestCount}
-Budget: ${formData.budgetRange}
 Notes: ${formData.message || 'None'}`;
 
     return encodeURIComponent(text);
@@ -258,7 +256,7 @@ Notes: ${formData.message || 'None'}`;
                     >
                       {SERVICES.map((s) => (
                         <option key={s.id} value={s.title}>
-                          {s.title} ({s.startingPrice})
+                          {s.title}
                         </option>
                       ))}
                     </select>
@@ -315,22 +313,6 @@ Notes: ${formData.message || 'None'}`;
                     </select>
                   </div>
 
-                  <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-[#B26CFF] mb-2 font-medium">
-                      Budget Range
-                    </label>
-                    <select
-                      name="budgetRange"
-                      value={formData.budgetRange}
-                      onChange={handleChange}
-                      className="w-full bg-[#0D0714] border border-[#705EFF]/30 text-[#FFE4F6] px-3 py-3 text-xs focus:outline-none focus:border-[#B26CFF]"
-                    >
-                      <option value="₹15,000 – ₹25,000">₹15,000 – ₹25,000</option>
-                      <option value="₹25,000 – ₹40,000">₹25,000 – ₹40,000</option>
-                      <option value="₹40,000 – ₹75,000">₹40,000 – ₹75,000</option>
-                      <option value="₹75,000+ (Destination / Multi-Day)">₹75,000+ (Destination)</option>
-                    </select>
-                  </div>
                 </div>
 
                 {/* 6. Message / Special Requests */}

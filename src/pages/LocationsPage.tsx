@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Plane, Clock, Phone, Mail, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { MapPin, Plane, Clock, Phone, ArrowRight, Sparkles } from 'lucide-react';
 import { ARTIST_DATA } from '../data/makeupData';
 
 interface LocationsPageProps {
@@ -10,68 +10,64 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onBookClick }) => 
   const destinationHubs = [
     {
       city: 'Udaipur & Jaipur',
-      region: 'Rajasthan Palaces',
-      desc: 'Heritage forts and luxury lakeside palaces. Full mobile VIP bridal setup with high-output makeup vanity lighting.'
+      region: 'Rajasthan Weddings',
+      desc: 'Heritage palaces and royal wedding venues. Complete mobile setup with professional vanity lighting.'
     },
     {
-      city: 'Goa & Alibaug',
-      region: 'Coastal & Beach Weddings',
-      desc: 'Humidity-proof, waterproof airbrush formulations guaranteed to resist tropical warmth and sea breeze.'
+      city: 'Goa & Coastal',
+      region: 'Beach Weddings',
+      desc: 'Waterproof and humidity-resistant makeup that stays fresh under coastal weather and sea breeze.'
     },
     {
-      city: 'Delhi NCR & Punjab',
-      region: 'Grand Royal Celebrations',
-      desc: 'High-glamour reception statements, dramatic couture lashes, and royal jewellery pairing.'
+      city: 'Delhi NCR & North India',
+      region: 'Grand Celebrations',
+      desc: 'Glowing bridal looks and reception styling tailored to your wedding decor and outfit.'
     },
     {
       city: 'Mumbai & Bengaluru',
-      region: 'Metropolitan Contemporary',
-      desc: 'Modern glass skin, pastel bridal aesthetics, and seamless morning-to-night transformation.'
+      region: 'Destination & City Weddings',
+      desc: 'Natural glass skin and graceful bridal hairstyles for intimate and grand ceremonies alike.'
     },
     {
-      city: 'Dubai & International',
-      region: 'Global Destination Brides',
-      desc: 'Full bridal entourage travel packages including passport-ready kits, trial runs, and pre-wedding event looks.'
+      city: 'Dubai & Worldwide',
+      region: 'International Weddings',
+      desc: 'Complete travel packages for international brides and families with prior look consultations.'
     }
   ];
 
   return (
     <div className="bg-[#FAF7FC] min-h-screen text-[#1A0B26]">
-      {/* 1. Proper Landscape AI-Generated Hero Section */}
-      <div className="relative w-full h-[52vh] min-h-[380px] max-h-[580px] overflow-hidden bg-[#0D0714]">
-        <img
-          src="/assets/heroes/locations_hero.jpg"
-          alt="Luxury Destination Wedding Palaces"
-          className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.05]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0714] via-[#0D0714]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0714]/85 via-transparent to-[#0D0714]/70" />
+      {/* 1. Royal Palette Gradient Hero Banner (No background image, pure luxury gradient & separate palette glows) */}
+      <div className="relative w-full py-16 sm:py-24 bg-gradient-to-br from-[#120524] via-[#1E0938] to-[#0A0314] overflow-hidden text-white border-b border-[#705EFF]/25">
+        <div className="absolute -top-12 -left-12 w-80 h-80 rounded-full bg-[#FF6082]/25 blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-[#705EFF]/20 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-10 left-1/3 w-72 h-72 rounded-full bg-[#B26CFF]/20 blur-[90px] pointer-events-none" />
 
-        {/* Hero Title Container */}
-        <div className="absolute inset-0 flex items-end">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 sm:pb-14">
-            <div className="inline-flex items-center gap-2 mb-2 sm:mb-3">
-              <span className="w-6 h-[2px] bg-[#FF6082]" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
-                STUDIO ATELIER & WORLDWIDE TRAVEL
-              </span>
-              <span className="w-6 h-[2px] bg-[#705EFF]" />
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight">
-              Locations & Destination <br />
-              <span className="text-blue-reveal italic font-light">
-                Bridal Concierge
-              </span>
-            </h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#FF6082] block mb-2">
+            Wherever Your Wedding Takes You
+          </span>
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-5 h-[2px] bg-[#FF6082]" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#B26CFF] font-semibold">
+              Studio & Destination Travel
+            </span>
+            <span className="w-5 h-[2px] bg-[#705EFF]" />
           </div>
+
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight mb-4">
+            Studio & Wedding Locations
+          </h1>
+          <p className="text-sm sm:text-base text-[#D8CEE8] font-light max-w-xl leading-relaxed">
+            Visit our private beauty studio or have Gautam Aadi and our team travel directly to your wedding venue across India and overseas.
+          </p>
         </div>
       </div>
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         
-        {/* Studio Boutique Information */}
+        {/* Studio & On-Location Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-stretch mb-16 sm:mb-24">
           
           <div className="lg:col-span-6 glass-card p-6 sm:p-10 flex flex-col justify-between">
@@ -79,16 +75,16 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onBookClick }) => 
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="w-5 h-[2px] bg-[#FF6082]" />
                 <span className="text-xs uppercase tracking-[0.2em] text-[#FF6082] font-semibold">
-                  FLAGSHIP ATELIER
+                  OUR STUDIO
                 </span>
               </div>
 
               <h2 className="font-serif text-2xl sm:text-4xl text-[#1A0B26] font-normal mb-4">
-                The Luxury Bridal Suite
+                Visit Our Studio
               </h2>
 
               <p className="text-xs sm:text-sm text-[#4A3A5E] font-light leading-relaxed mb-6">
-                Our private studio provides an oasis of tranquility for bridal consultations, customized skin prep previews, and couture draping sessions. Designed with true-color CRI 98 studio lighting, you will see exactly how your makeup performs before your wedding day.
+                Our peaceful studio is equipped with professional makeup lighting, private changing areas, and high-end tools so you can experience your bridal look in full comfort.
               </p>
 
               <div className="space-y-3.5 text-xs sm:text-sm text-[#2D183E] border-t border-[#705EFF]/15 pt-5 mb-6">
@@ -98,7 +94,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onBookClick }) => 
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-[#705EFF] shrink-0" />
-                  <span>Tuesday – Sunday: 10:00 AM – 7:30 PM (By Appointment Only)</span>
+                  <span>Tuesday – Sunday: 10:00 AM – 7:30 PM (By Appointment)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#1E3A8A] shrink-0" />
@@ -112,59 +108,59 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onBookClick }) => 
             <div>
               <button
                 onClick={onBookClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-[0.2em] font-bold shadow-md shadow-[#FF6082]/25 hover:opacity-95 transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-[0.2em] font-bold shadow-md shadow-[#FF6082]/25 hover:opacity-95 transition-all cursor-pointer rounded-sm"
               >
-                <span>Book In-Studio Trial Session</span>
+                <span>Book a Studio Visit</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
               </button>
             </div>
           </div>
 
-          {/* Pan-India Travel Guarantee */}
+          {/* Destination Travel */}
           <div className="lg:col-span-6 glass-card p-6 sm:p-10 flex flex-col justify-between border-l-4 border-l-[#705EFF]">
             <div>
               <div className="inline-flex items-center gap-2 mb-3">
                 <Plane className="w-4 h-4 text-[#705EFF]" />
                 <span className="text-xs uppercase tracking-[0.2em] text-[#705EFF] font-semibold">
-                  ON-LOCATION SERVICES
+                  WE COME TO YOU
                 </span>
               </div>
 
               <h2 className="font-serif text-2xl sm:text-4xl text-[#1A0B26] font-normal mb-4">
-                We Travel To Your Venue
+                We Travel to Your Venue
               </h2>
 
               <p className="text-xs sm:text-sm text-[#4A3A5E] font-light leading-relaxed mb-6">
-                Whether you are exchanging vows in a regal fort in Jodhpur, a palace in Udaipur, a cliffside resort in Goa, or an international hotel ballroom in Dubai, Gautam Aadi and his senior artistry entourage travel to your location with complete luxury kits.
+                Whether your wedding is at a heritage resort, a beach hotel, or your hometown, Gautam Aadi travels to you with all required lighting and professional kits.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="p-3 bg-[#FAF7FC] border border-[#705EFF]/15 text-xs">
-                  <span className="font-semibold text-[#1A0B26] block">Zero Stress Setup</span>
-                  <span className="text-[#7A698F] text-[11px]">We arrive 2 hours prior to start time with vanity lights</span>
+                  <span className="font-semibold text-[#1A0B26] block">Early Arrival</span>
+                  <span className="text-[#7A698F] text-[11px]">We arrive well before your event time so you never feel rushed</span>
                 </div>
                 <div className="p-3 bg-[#FAF7FC] border border-[#705EFF]/15 text-xs">
-                  <span className="font-semibold text-[#1A0B26] block">Entourage Coverage</span>
-                  <span className="text-[#7A698F] text-[11px]">Bridesmaids, mothers, and family styling teams available</span>
+                  <span className="font-semibold text-[#1A0B26] block">Family Styling</span>
+                  <span className="text-[#7A698F] text-[11px]">Team members available to style mother, sisters, and bridesmaids</span>
                 </div>
               </div>
             </div>
 
             <div className="p-3.5 bg-[#705EFF]/5 border border-[#705EFF]/20 text-xs text-[#4A3A5E]">
-              <span className="text-[#FF6082] font-semibold">Travel Protocol:</span> Flights/train transit and hotel accommodations for on-location destination bookings are coordinated seamlessly by our bridal concierge.
+              <span className="text-[#FF6082] font-semibold">Travel Details:</span> Travel and hotel arrangements for outstation weddings can be easily coordinated directly with our team upon booking.
             </div>
           </div>
 
         </div>
 
-        {/* Popular Destination Hubs */}
+        {/* Wedding Locations */}
         <div>
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
             <span className="text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold block mb-2">
-              FREQUENT DESTINATION DESTINATIONS
+              DESTINATION WEDDINGS
             </span>
             <h2 className="font-serif text-2xl sm:text-4xl text-[#1A0B26]">
-              Where We Create Magic
+              Popular Wedding Destinations
             </h2>
           </div>
 
@@ -183,7 +179,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onBookClick }) => 
                   </p>
                 </div>
                 <div className="pt-3 border-t border-[#705EFF]/15 flex items-center justify-between text-xs text-[#705EFF] font-medium">
-                  <span>Available on booking</span>
+                  <span>Available for Bookings</span>
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
               </div>

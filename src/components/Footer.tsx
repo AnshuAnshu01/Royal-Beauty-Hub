@@ -51,12 +51,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
                 <Instagram className="w-4 h-4" />
               </a>
 
-              {/* Minimal Redesigned WhatsApp Icon */}
+              {/* Minimal Redesigned WhatsApp Icon in Royal Palette */}
               <a
                 href={`https://wa.me/${ARTIST_DATA.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-[#25D366]/40 hover:border-[#25D366] bg-[#160F24] text-[#25D366] hover:bg-[#25D366] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
+                className="w-10 h-10 border border-[#705EFF]/30 hover:border-[#FF6082] bg-[#160F24] text-[#B26CFF] hover:bg-gradient-to-r hover:from-[#FF6082] hover:to-[#705EFF] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -96,11 +96,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onBookClick }) => {
               <li>
                 <button onClick={() => handleNav('gallery')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
                   Looks Gallery
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('transformations')} className="hover:text-[#FFE4F6] transition-colors cursor-pointer">
-                  Transformations
                 </button>
               </li>
               <li>

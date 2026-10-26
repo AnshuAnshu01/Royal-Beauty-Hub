@@ -65,7 +65,7 @@ export const ARTIST_DATA = {
   studioLocation: "Aurangabad, Bihar, India",
   location: "Aurangabad, Bihar, India",
   email: "royalbeautyhub.official@gmail.com",
-  profileImage: "/assets/heroes/founder_hero.jpg",
+  profileImage: "/assets/founder.jpg",
   experienceYears: "6+",
   bridesCount: "500+",
   transformationsCount: "1200+",

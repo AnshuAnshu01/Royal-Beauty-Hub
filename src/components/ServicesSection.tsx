@@ -103,8 +103,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       <Clock className="w-3 h-3 text-[#FF6082]" />
                       {service.duration}
                     </span>
-                    <span className="font-serif text-xs sm:text-sm text-[#FFE4F6] bg-[#0D0714]/95 px-2.5 py-1 backdrop-blur-md border border-[#705EFF]/35 font-medium">
-                      From {service.startingPrice}
+                    <span className="font-serif text-xs text-[#FFE4F6] bg-[#0D0714]/95 px-2.5 py-1 backdrop-blur-md border border-[#705EFF]/35 font-medium">
+                      Bespoke Package
                     </span>
                   </div>
                 </div>

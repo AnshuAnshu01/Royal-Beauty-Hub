@@ -6,7 +6,7 @@ export const LuxuryPreloader: React.FC = () => {
   const [fadeExit, setFadeExit] = useState(false);
 
   useEffect(() => {
-    // Elegant luxury reveal timer
+    // Smooth reveal timer
     const timer = setTimeout(() => {
       setFadeExit(true);
       setTimeout(() => {
@@ -21,37 +21,37 @@ export const LuxuryPreloader: React.FC = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-[#FAF7FC] flex flex-col items-center justify-center p-6 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] bg-gradient-to-b from-[#130626] via-[#1C0938] to-[#0D041A] flex flex-col items-center justify-center p-6 transition-opacity duration-500 ${
         fadeExit ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
-      aria-label="Loading Royal Beauty Hub Luxury Atelier"
+      aria-label="Loading Royal Beauty Hub"
     >
       <div className="flex flex-col items-center text-center max-w-sm animate-in fade-in zoom-in-95 duration-500">
         
-        {/* Logo with gentle royal glow & pulse */}
+        {/* BIG Logo with Royal Glow */}
         <div className="relative mb-6">
-          <div className="absolute -inset-4 bg-gradient-to-r from-[#FF6082]/20 via-[#B26CFF]/20 to-[#705EFF]/20 rounded-full blur-xl animate-pulse" />
+          <div className="absolute -inset-8 bg-gradient-to-tr from-[#FF6082]/30 via-[#B26CFF]/30 to-[#705EFF]/30 rounded-full blur-2xl animate-pulse" />
           <img
             src={ARTIST_DATA.logoUrl}
             alt="Royal Beauty Hub Logo"
-            className="relative h-20 sm:h-24 w-auto object-contain filter drop-shadow-[0_4px_20px_rgba(112,94,255,0.35)]"
+            className="relative h-32 sm:h-40 md:h-44 w-auto object-contain filter drop-shadow-[0_8px_35px_rgba(178,108,255,0.6)]"
           />
         </div>
 
-        {/* Brand Name Text with Blue Reveal */}
-        <div className="flex items-center gap-2 mb-4">
-          <span className="font-serif text-xl sm:text-2xl font-semibold tracking-wide text-[#1A0B26]">
+        {/* Cursive Brand Name */}
+        <div className="mb-3">
+          <span className="font-cursive text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF]">
             Royal Beauty Hub
           </span>
         </div>
 
-        {/* Loading status text in tracked blush */}
-        <p className="text-[10px] uppercase tracking-[0.35em] text-[#705EFF] font-semibold mb-3">
-          Couture Artistry Loading...
+        {/* Human Simple Status */}
+        <p className="text-[11px] uppercase tracking-[0.25em] text-[#D8CEE8] font-medium mb-4">
+          Preparing your beauty experience...
         </p>
 
-        {/* Minimal Luxury Royal Progress Bar */}
-        <div className="w-48 h-[2.5px] bg-[#FAF7FC] border border-[#705EFF]/25 relative overflow-hidden rounded-full">
+        {/* Luxury Royal Progress Bar */}
+        <div className="w-48 h-[2.5px] bg-[#1F0C3D] border border-[#705EFF]/40 relative overflow-hidden rounded-full">
           <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] w-full animate-[progress_1.1s_ease-in-out_infinite]" />
         </div>
       </div>

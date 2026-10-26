@@ -63,7 +63,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   // Secondary items in the minimal "More" menu (strictly NO icons as requested)
   const moreNavItems: { id: PageRoute; label: string }[] = [
     { id: 'founder', label: 'Founder & Artist' },
-    { id: 'transformations', label: 'Transformations' },
     { id: 'locations', label: 'Locations & Travel' },
     { id: 'reviews', label: 'Reviews' },
     { id: 'about', label: 'About Atelier' },
@@ -75,23 +74,23 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       {/* Sticky Header: Sits cleanly above the hero section with zero overlap */}
-      <header className="sticky top-0 z-50 bg-[#FAF7FC]/92 backdrop-blur-xl border-b border-[#705EFF]/18 shadow-[0_4px_20px_-2px_rgba(112,94,255,0.06)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 sm:h-20">
+      <header className="sticky top-0 z-50 bg-[#FAF7FC]/95 backdrop-blur-xl border-b border-[#705EFF]/18 shadow-[0_4px_20px_-2px_rgba(112,94,255,0.06)]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
             
-            {/* Brand Logo with "| Royal Beauty Hub" */}
+            {/* Brand Logo with cursive "| Royal Beauty Hub" */}
             <button
               onClick={() => handleLinkClick('home')}
-              className="group flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none cursor-pointer select-none"
+              className="group flex items-center gap-1.5 sm:gap-2.5 text-left focus:outline-none cursor-pointer select-none shrink min-w-0"
               aria-label="Royal Beauty Hub Home"
             >
               <img
                 src={ARTIST_DATA.logoUrl}
                 alt="Royal Beauty Hub Logo"
-                className="h-11 sm:h-13 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(112,94,255,0.25)]"
+                className="h-8 sm:h-12 w-auto object-contain shrink-0 transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_10px_rgba(112,94,255,0.25)]"
               />
-              <span className="text-[#705EFF]/30 text-lg sm:text-xl font-light">|</span>
-              <span className="font-serif text-base sm:text-xl md:text-2xl font-semibold tracking-wide text-[#1A0B26] group-hover:text-[#705EFF] transition-colors whitespace-nowrap">
+              <span className="text-[#705EFF]/40 text-base sm:text-xl font-light shrink-0">|</span>
+              <span className="font-cursive text-xl sm:text-2xl md:text-3xl font-medium tracking-normal text-[#1A0B26] group-hover:text-[#705EFF] transition-colors truncate pt-0.5 leading-none">
                 Royal Beauty Hub
               </span>
             </button>
@@ -163,10 +162,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             {/* Right Controls: Book Now CTA & Mobile Hamburger */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               <button
                 onClick={onBookClick}
-                className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 text-xs uppercase tracking-[0.18em] font-bold bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white transition-all duration-300 shadow-md shadow-[#FF6082]/25 hover:shadow-lg hover:shadow-[#FF6082]/35 cursor-pointer"
+                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-6 sm:py-2.5 text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-bold bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] hover:opacity-95 text-white transition-all duration-300 shadow-sm sm:shadow-md shadow-[#FF6082]/25 hover:shadow-lg cursor-pointer rounded-sm"
               >
                 Book Now
               </button>
@@ -174,10 +173,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Mobile Hamburger Toggle */}
               <button
                 onClick={() => onMobileMenuToggle(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-[#1A0B26] hover:text-[#705EFF] focus:outline-none cursor-pointer transition-colors"
+                className="lg:hidden p-1.5 sm:p-2 text-[#1A0B26] hover:text-[#705EFF] focus:outline-none cursor-pointer transition-colors"
                 aria-label="Toggle Navigation Menu"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
               </button>
             </div>
 
@@ -198,7 +197,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="h-10 w-auto object-contain"
                 />
                 <span className="text-[#705EFF]/30 text-lg">|</span>
-                <span className="font-serif text-lg font-semibold text-[#1A0B26]">
+                <span className="font-cursive text-2xl font-medium text-[#1A0B26]">
                   Royal Beauty Hub
                 </span>
               </div>

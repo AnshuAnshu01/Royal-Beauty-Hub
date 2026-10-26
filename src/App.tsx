@@ -144,8 +144,8 @@ export default function App() {
         )}
 
         {currentPage === 'transformations' && (
-          <TransformationsPage
-            onBookTransformation={(item: TransformationItem) => handleOpenBookingModal(undefined, item.title)}
+          <GalleryPage
+            onBookLook={(look: GalleryItem) => handleOpenBookingModal(undefined, look.title)}
           />
         )}
 

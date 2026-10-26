@@ -1,6 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Award, Heart, Sparkles, ArrowRight } from 'lucide-react';
-import { ARTIST_DATA } from '../data/makeupData';
+import { ShieldCheck, Award, Sparkles, ArrowRight } from 'lucide-react';
 
 interface AboutPageProps {
   onBookConsultation: () => void;
@@ -9,33 +8,30 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ onBookConsultation }) => {
   return (
     <div className="bg-[#FAF7FC] min-h-screen text-[#1A0B26]">
-      {/* 1. Proper Landscape AI-Generated Hero Section */}
-      <div className="relative w-full h-[52vh] min-h-[380px] max-h-[580px] overflow-hidden bg-[#0D0714]">
-        <img
-          src="/assets/heroes/about_hero.jpg"
-          alt="Royal Beauty Hub Luxury Atelier"
-          className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.05]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0714] via-[#0D0714]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0714]/85 via-transparent to-[#0D0714]/70" />
+      {/* 1. Royal Palette Gradient Hero Banner (No background image, pure luxury gradient & separate palette glows) */}
+      <div className="relative w-full py-16 sm:py-24 bg-gradient-to-br from-[#120524] via-[#1E0938] to-[#0A0314] overflow-hidden text-white border-b border-[#705EFF]/25">
+        <div className="absolute -top-12 -left-12 w-80 h-80 rounded-full bg-[#705EFF]/25 blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-[#FF6082]/20 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-10 left-1/3 w-72 h-72 rounded-full bg-[#B26CFF]/20 blur-[90px] pointer-events-none" />
 
-        <div className="absolute inset-0 flex items-end">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-10 sm:pb-14">
-            <div className="inline-flex items-center gap-2 mb-2 sm:mb-3">
-              <span className="w-6 h-[2px] bg-[#FF6082]" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#FF6082] font-semibold">
-                THE ATELIER HERITAGE
-              </span>
-              <span className="w-6 h-[2px] bg-[#705EFF]" />
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight">
-              About Royal Beauty Hub & <br />
-              <span className="text-blue-reveal italic font-light">
-                The Couture Vision
-              </span>
-            </h1>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+          <span className="font-cursive text-3xl sm:text-4xl text-[#FF6082] block mb-2">
+            Our Story & Passion
+          </span>
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-5 h-[2px] bg-[#FF6082]" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#B26CFF] font-semibold">
+              About Our Studio
+            </span>
+            <span className="w-5 h-[2px] bg-[#705EFF]" />
           </div>
+
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight mb-4">
+            About Royal Beauty Hub
+          </h1>
+          <p className="text-sm sm:text-base text-[#D8CEE8] font-light max-w-xl leading-relaxed">
+            We believe wedding makeup should make you feel confident, radiant, and true to yourself on one of the most memorable days of your life.
+          </p>
         </div>
       </div>
 
@@ -43,11 +39,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBookConsultation }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         
         <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+          <span className="font-cursive text-3xl text-[#705EFF] block mb-2">
+            Where Elegance Meets Warmth
+          </span>
           <h2 className="font-serif text-2xl sm:text-4xl text-[#1A0B26] font-normal mb-4">
-            Where Modern Indian Brides Find Their Authentic Grandeur
+            Celebrating Natural Beauty with Every Bride
           </h2>
           <p className="text-sm sm:text-base text-[#4A3A5E] font-light leading-relaxed">
-            Founded with the philosophy that royal elegance is not about heavy cosmetic masking, but about revealing the luminous truth of each bride's natural beauty. Every appointment at Royal Beauty Hub is an unhurried, private atelier experience designed for weddings of timeless distinction.
+            Royal Beauty Hub was started with a simple belief: makeup should highlight who you are, not cover you up. We provide an unhurried, peaceful experience where every detail—from your skin prep to your jewelry and dupatta—is looked after with care.
           </p>
         </div>
 
@@ -59,10 +58,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBookConsultation }) => {
                 <Sparkles className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl text-[#1A0B26] font-semibold mb-2">
-                Couture Artistry
+                Custom Styling
               </h3>
               <p className="text-xs text-[#4A3A5E] leading-relaxed font-light">
-                Every look is designed collaboratively around your ceremonial outfits, family heirlooms, lighting conditions, and skin undertones.
+                Each look is created specifically for you, taking into account your outfit color, ceremony lighting, and personal taste.
               </p>
             </div>
           </div>
@@ -73,10 +72,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBookConsultation }) => {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl text-[#1A0B26] font-semibold mb-2">
-                Hygiene & Precision
+                Hygiene First
               </h3>
               <p className="text-xs text-[#4A3A5E] leading-relaxed font-light">
-                Medical-grade hygiene, disposable wands, and cryo-sanitized brush protocols ensure pristine skin safety and flawless pigment blending.
+                We use deeply sanitized brushes and premium skincare brands so your skin stays healthy, comfortable, and glowing.
               </p>
             </div>
           </div>
@@ -87,10 +86,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBookConsultation }) => {
                 <Award className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl text-[#1A0B26] font-semibold mb-2">
-                24-Hour Longevity
+                All-Day Freshness
               </h3>
               <p className="text-xs text-[#4A3A5E] leading-relaxed font-light">
-                Micro-setting techniques ensure your glass skin, defined eyes, and sculpted contour stay luminous throughout rituals and evening festivities.
+                Our lightweight layering technique ensures your look stays fresh, sweat-proof, and photo-ready through rituals and dancing.
               </p>
             </div>
           </div>
@@ -98,17 +97,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBookConsultation }) => {
 
         {/* CTA Banner */}
         <div className="glass-panel p-8 sm:p-12 text-center max-w-3xl mx-auto">
+          <span className="font-cursive text-3xl text-[#FF6082] block mb-2">
+            Let's Talk About Your Wedding Day
+          </span>
           <h3 className="font-serif text-2xl sm:text-3xl text-[#1A0B26] mb-3">
-            Begin Your Bridal Journey Today
+            Plan Your Look with Gautam Aadi
           </h3>
           <p className="text-xs sm:text-sm text-[#4A3A5E] font-light max-w-lg mx-auto mb-6">
-            Inquire early to guarantee date availability for your sacred wedding ceremonies.
+            Get in touch early to ensure your wedding date is reserved.
           </p>
           <button
             onClick={onBookConsultation}
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-[0.2em] font-bold shadow-lg shadow-[#FF6082]/25 cursor-pointer"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-[#FF6082] via-[#B26CFF] to-[#705EFF] text-white text-xs uppercase tracking-[0.2em] font-bold shadow-lg shadow-[#FF6082]/25 cursor-pointer rounded-sm hover:opacity-95 transition-all"
           >
-            <span>Book Exclusive Consultation</span>
+            <span>Check Date Availability</span>
             <ArrowRight className="w-4 h-4 ml-2" />
           </button>
         </div>
